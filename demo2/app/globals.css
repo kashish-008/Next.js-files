@@ -1,0 +1,43 @@
+body {
+  background: #f0f0f0;
+  font-family: Arial;
+  margin: 0;
+}
+
+header {
+  background: blue;
+  color: white;
+  padding: 20px;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Global link styles */
+a {
+  color: #0b5fff;
+  text-decoration: none;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover,
+a:focus {
+  color: #0836b8;
+  text-decoration: dotted;
+}
+
+/* Header links should contrast with header background */
+header a {
+  color: #bb1414;
+  margin: 0 8px;
+}
+
+header a:hover,
+header a:focus {
+  color: #7bff00;
+  text-decoration: underline;
+}
