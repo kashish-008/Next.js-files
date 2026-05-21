@@ -23,11 +23,11 @@ export default function HomePage() {
         <h2 className="text-3xl font-bold text-gray-900 mb-8">
           Latest Articles
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogs.map((blog) => (
-            <Link 
-              key={blog.id} 
+            <Link
+              key={blog.id}
               href={`/blog/${blog.id}`}
               className="group"
             >
@@ -35,25 +35,25 @@ export default function HomePage() {
                 {/* Tags */}
                 <div className="flex gap-2 mb-3">
                   {blog.tags.map((tag) => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                
+
                 {/* Title */}
                 <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition mb-2">
                   {blog.title}
                 </h3>
-                
+
                 {/* Excerpt */}
                 <p className="text-gray-600 mb-4">
                   {blog.excerpt}
                 </p>
-                
+
                 {/* Meta Info */}
                 <div className="flex justify-between items-center text-sm text-gray-500 mt-auto">
                   <span>{blog.author}</span>
