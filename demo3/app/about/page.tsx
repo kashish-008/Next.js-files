@@ -9,7 +9,7 @@ export default function AboutPage() {
 
       <div className="bg-white rounded-xl shadow-md p-8">
         <p className="text-lg text-gray-700 mb-4">
-          Hey! I am <span className="font-bold text-blue-600">Kashish</span>, 
+          Hey! I&apos;m <span className="font-bold text-blue-600">Kashish</span>, 
           a passionate developer learning Next.js and building awesome web applications.
         </p>
 
