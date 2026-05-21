@@ -1,4 +1,4 @@
-# Next.js Practice & Demo Workspace
+# Next.js Project & Demo Workspace
 
 A personal workspace for learning, experimenting, and practicing Next.js development. This repository contains various demo projects and files created during my Next.js learning journey.
 
@@ -7,7 +7,7 @@ A personal workspace for learning, experimenting, and practicing Next.js develop
 This repository serves as my:
 - **Learning playground** for Next.js concepts
 - **Demo workspace** for testing new features
-- **Practice hub** for office-related Next.js development
+- **Project hub** for office-related Next.js development
 - **Reference library** for reusable code patterns
 
 ## 🗂️ Project Structure
