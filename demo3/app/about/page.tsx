@@ -9,7 +9,7 @@ export default function AboutPage() {
 
       <div className="bg-white rounded-xl shadow-md p-8">
         <p className="text-lg text-gray-700 mb-4">
-          Hey! I&apos;m <span className="font-bold text-blue-600">Kashish</span>, 
+          Hey! I&apos;m <span className="font-bold text-blue-600">Kashish</span>,
           a passionate developer learning Next.js and building awesome web applications.
         </p>
 
@@ -32,8 +32,9 @@ export default function AboutPage() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h2 className="text-2xl font-bold mb-3">📬 Connect</h2>
             <p className="text-gray-600">
-              Email: kashish@example.com<br />
-              GitHub: github.com/kashish
+              Email: <a href="mailto:kashish@example.com" className="text-blue-600 hover:underline">kashish@example.com</a>
+              <br />
+              GitHub: <a href="https://github.com/kashish-008" target="_blank" className="text-blue-600 hover:underline">github.com/kashish-008</a>
             </p>
           </div>
         </div>
