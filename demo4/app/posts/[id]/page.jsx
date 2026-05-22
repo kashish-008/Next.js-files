@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 async function getPost(id) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   if (!res.ok) throw new Error("Failed to fetch post");
@@ -20,12 +22,12 @@ export default async function PostDetailPage({ params }) {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <a
+      <Link
         href="/posts"
         className="inline-block mb-6 text-blue-600 hover:underline"
       >
         ← Back to all posts
-      </a>
+      </Link>
       <article className="bg-white rounded-lg shadow-md p-8 mb-8">
         <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
         <p className="text-gray-700 leading-relaxed mb-6">{post.body}</p>
