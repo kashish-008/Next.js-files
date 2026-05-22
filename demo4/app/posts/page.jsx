@@ -6,6 +6,8 @@ async function getPosts() {
   return res.json();
 }
 
+import Link from "next/link";
+
 export default async function PostsPage() {
   const posts = await getPosts();
   // Show only first 10 posts
@@ -21,7 +23,7 @@ export default async function PostsPage() {
       </p>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {displayPosts.map((post) => (
-          <a
+          <Link
             key={post.id}
             href={`/posts/${post.id}`}
             className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition border border-gray-200"
@@ -33,7 +35,7 @@ export default async function PostsPage() {
             <span className="inline-block mt-4 text-blue-500 hover:underline">
               Read more →
             </span>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
