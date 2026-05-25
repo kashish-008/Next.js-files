@@ -6,7 +6,7 @@ import TodoCard from "./components/TodoCard";
 export default function Home() {
   // State for all todos
   const [todos, setTodos] = useState([]);
-  
+
   // State to track which todo we are editing
   const [editId, setEditId] = useState(null);
   const [editText, setEditText] = useState("");
@@ -58,7 +58,6 @@ export default function Home() {
     setEditId(null);
     setEditText("");
   };
-
   // Cancel editing
   const cancelEdit = () => {
     setEditId(null);
