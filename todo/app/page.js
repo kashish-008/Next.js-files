@@ -41,7 +41,7 @@ export default function Home() {
     );
   };
 
-  // Start editing – populate form
+  // Start editing-populate form
   const startEdit = (todo) => {
     setEditId(todo.id);
     setEditText(todo.text);
