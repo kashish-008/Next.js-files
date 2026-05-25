@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background:
+      radial-gradient(circle at top, rgba(251, 191, 36, 0.18), transparent 35%),
+      linear-gradient(180deg, rgb(248 250 252), rgb(241 245 249));
+    color: rgb(15 23 42);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
