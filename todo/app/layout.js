@@ -2,7 +2,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext"; 
 
 // Separate component to read context for body classes
 function ThemedBody({ children }) {
