@@ -15,9 +15,9 @@ export default function ContactPage() {
   }`;
 
   return (
-    <div className="px-4 py-8">
+    <div className="px-4 py-3">
       <h1
-        className={`mb-6 text-4xl font-bold ${
+        className={`mb-4 text-4xl font-bold ${
           isDark ? "text-slate-100" : "text-slate-900"
         }`}
       >
@@ -59,7 +59,7 @@ export default function ContactPage() {
           <div>
             <label className={labelClass}>Message</label>
             <textarea
-              rows={5}
+              rows={3}
               placeholder="Your message..."
               className={inputClass}
             />
