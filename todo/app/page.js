@@ -2,78 +2,77 @@
 import { useState } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoCard from "./components/TodoCard";
+import { useTheme } from "./context/ThemeContext";
 
 export default function Home() {
-  // State for all todos
-  const [todos, setTodos] = useState([]);
+  const { isDark } = useTheme();
 
-  // State to track which todo we are editing
+  const [todos, setTodos] = useState([]);
   const [editId, setEditId] = useState(null);
   const [editText, setEditText] = useState("");
 
-  // Add new todo
+  const resetEdit = () => {
+    setEditId(null);
+    setEditText("");
+  };
+
   const addTodo = (text) => {
     if (text.trim() === "") return;
-    const newTodo = {
-      id: Date.now(),
-      text: text,
-      completed: false,
-    };
+    const newTodo = { id: Date.now(), text, completed: false };
     setTodos([...todos, newTodo]);
   };
 
-  // Delete todo
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
-    // If deleting the one being edited, reset edit mode
     if (editId === id) {
-      setEditId(null);
-      setEditText("");
+      resetEdit();
     }
   };
 
-  // Toggle complete (strikethrough)
   const toggleComplete = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    setTodos(todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    ));
   };
 
-  // Start editing-populate form
-  const startEdit = (todo) => {
-    setEditId(todo.id);
-    setEditText(todo.text);
-  };
+  const startEdit = (todo) => { setEditId(todo.id); setEditText(todo.text); };
 
-  // Save edited todo
   const updateTodo = () => {
     if (editText.trim() === "") return;
-    setTodos(
-      todos.map((todo) =>
-        todo.id === editId ? { ...todo, text: editText } : todo
-      )
-    );
-    setEditId(null);
-    setEditText("");
+    setTodos(todos.map((todo) =>
+      todo.id === editId ? { ...todo, text: editText } : todo
+    ));
+    resetEdit();
   };
-  // Cancel editing
+
   const cancelEdit = () => {
-    setEditId(null);
-    setEditText("");
+    resetEdit();
   };
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:py-10">
-      <section className="mb-6 rounded-3xl bg-white/80 p-6 shadow-sm ring-1 ring-slate-200 sm:p-8">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
+
+      {/* Header section */}
+      <section
+        className={`mb-6 rounded-3xl p-6 shadow-sm ring-1 sm:p-8 transition-colors duration-300 ${
+          isDark
+            ? "bg-slate-800/80 ring-slate-700"
+            : "bg-white/80 ring-slate-200"
+        }`}
+      >
+        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-amber-500">
           Todo App
         </p>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        <h1
+          className={`text-3xl font-bold tracking-tight sm:text-4xl ${
+            isDark ? "text-slate-100" : "text-slate-900"
+          }`}
+        >
           Keep your day organized
         </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
+        <p className={`mt-3 max-w-2xl text-sm leading-6 sm:text-base ${
+          isDark ? "text-slate-400" : "text-slate-600"
+        }`}>
           Add tasks, mark them done, and keep things neat with a clean color style.
         </p>
       </section>
@@ -89,7 +88,13 @@ export default function Home() {
 
       <div className="mt-6 space-y-3">
         {todos.length === 0 && (
-          <p className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-6 text-center text-slate-500">
+          <p
+            className={`rounded-2xl border border-dashed px-4 py-6 text-center transition-colors duration-300 ${
+              isDark
+                ? "border-slate-600 bg-slate-800 text-slate-400"
+                : "border-slate-300 bg-white text-slate-500"
+            }`}
+          >
             No todos yet. Add one to get started.
           </p>
         )}
