@@ -15,7 +15,7 @@ export default function ArticlePage() {
   return (
     <div className="max-w-3xl mx-auto">
       <Link href="/" className="text-blue-600 hover:underline mb-4 inline-block">
-        ← Back to Home
+         Back to Home
       </Link>
       
       <article className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -27,7 +27,7 @@ export default function ArticlePage() {
         <div className="p-8">
           <div className="flex items-center text-sm text-gray-500 mb-4">
             <span>{article.date}</span>
-            <span className="mx-2">•</span>
+            <span className="mx-2">-</span>
             <span>{article.readTime}</span>
           </div>
           <h1 className="text-3xl font-bold mb-4 text-gray-800">

@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useAuth } from '../../context/AuthContext';
-import { validateEmail, validatePassword } from '../../utils/validation';
+import { useAuth } from '../context/AuthContext';
+import { validateEmail, validatePassword } from '../utils/validation';
 
 export default function LoginPage() {
   const router = useRouter();

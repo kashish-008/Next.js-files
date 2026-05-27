@@ -1,9 +1,7 @@
-import "./globals.css";
-
 import './globals.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import AuthProvider from '../components/AuthProvider';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import AuthProvider from './components/AuthProvider';
 
 export const metadata = {
   title: 'ArticleHub - Read Amazing Articles',
@@ -16,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className="flex flex-col min-h-screen">
         <AuthProvider>
           <Navbar />
-          <main className="flex-grow container mx-auto px-4 py-8">
+          <main className="flex grow container mx-auto px-4 py-8">
             {children}
           </main>
           <Footer />

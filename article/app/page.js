@@ -1,5 +1,5 @@
-import { articles } from '../data/articles';
-import ArticleCard from '../components/ArticleCard';
+import { articles } from './data/articles';
+import ArticleCard from './components/ArticleCard';
 
 export default function Home() {
   return (
