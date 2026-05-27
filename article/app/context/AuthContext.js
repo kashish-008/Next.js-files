@@ -42,7 +42,7 @@ export function AuthProvider({ children }) {
       id: Date.now().toString(),
       name,
       email,
-      password // In real app, hash this!
+      password 
     };
     
     users.push(newUser);

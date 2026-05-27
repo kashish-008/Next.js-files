@@ -1,4 +1,3 @@
-// app/components/ArticleCard.js
 import Link from 'next/link';
 
 export default function ArticleCard({ article }) {
