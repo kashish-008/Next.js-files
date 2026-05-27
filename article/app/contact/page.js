@@ -12,7 +12,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you'd send this to an API
+    // In a real app, this send this to an API
     console.log('Contact form submitted:', formData);
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
@@ -42,11 +42,11 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="font-semibold text-gray-700">Phone</h3>
-              <p className="text-gray-600">+1 (555) 123-4567</p>
+              <p className="text-gray-600">+91 12345 67879</p>
             </div>
             <div>
               <h3 className="font-semibold text-gray-700">Address</h3>
-              <p className="text-gray-600">123 Tech Street, Silicon Valley, CA 94025</p>
+              <p className="text-gray-600">123 Tech Street, Mohali, PB 94025</p>
             </div>
           </div>
         </div>
