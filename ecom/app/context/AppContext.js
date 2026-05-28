@@ -7,7 +7,7 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [wishlistIds, setWishlistIds] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false); // NEW: sidebar state
+  const [isCartOpen, setIsCartOpen] = useState(false); 
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -46,8 +46,8 @@ export function AppProvider({ children }) {
       }];
     });
     toast.success(`${product.name} added to cart!`);
-    // Optionally auto-open sidebar? Many stores do this. Uncomment if desired:
-    // setIsCartOpen(true);
+    // Optionally auto-open sidebar
+    // setIsCartOpen(true); 
   };
 
   const updateQuantity = (productId, newQuantity) => {

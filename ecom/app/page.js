@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl text-white mb-12">
+      <section className="text-center py-16 bg-linear-to-r from-blue-500 to-purple-600 rounded-xl text-white mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Welcome to ShopEase
         </h1>
@@ -35,7 +35,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Product Categories Button (as requested) */}
+      {/* Product Categories Button */}
       <div className="text-center">
         <Link
           href="/categories"

@@ -23,7 +23,7 @@ export default function CartSidebar() {
       <div className={`fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-xl font-semibold">Your Cart ({cartItems.reduce((sum, i) => sum + i.quantity, 0)})</h2>
+          <h2 className="text-xl font-semibold">Your Cart </h2>
           <button onClick={closeCart} className="p-1 hover:bg-gray-100 rounded">
             <FaTimes className="text-2xl" />
           </button>

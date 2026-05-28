@@ -5,7 +5,7 @@ import { useAppContext } from '@/context/AppContext';
 import CartSidebar from './CartSidebar'; // Import the sidebar
 
 export default function Navbar() {
-  const { getCartTotalCount, wishlistIds, openCart } = useAppContext(); // use openCart, not link
+  const { getCartTotalCount, wishlistIds, openCart } = useAppContext(); 
   const cartCount = getCartTotalCount();
   const wishlistCount = wishlistIds.length;
 
@@ -27,7 +27,7 @@ export default function Navbar() {
               Categories
             </Link>
             
-            {/* Wishlist Icon - still links to page */}
+            {/* Wishlist Icon */}
             <Link href="/wishlist" className="relative">
               <FaHeart className="text-2xl text-gray-700 hover:text-red-500 transition" />
               {wishlistCount > 0 && (
@@ -37,7 +37,7 @@ export default function Navbar() {
               )}
             </Link>
 
-            {/* Cart Icon - now opens sidebar */}
+            {/* Cart Icon */}
             <button onClick={openCart} className="relative focus:outline-none">
               <FaShoppingCart className="text-2xl text-gray-700 hover:text-blue-600 transition" />
               {cartCount > 0 && (
