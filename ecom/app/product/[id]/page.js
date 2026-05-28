@@ -27,7 +27,7 @@ export default function ProductDetailPage() {
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
-    setQuantity(1); // Reset quantity after adding
+    setQuantity(1); // Reset quantity after adding  
   };
 
   const isWishlisted = isInWishlist(product.id);
@@ -35,7 +35,7 @@ export default function ProductDetailPage() {
   return (
     <div className="max-w-6xl mx-auto">
       <Link href="/categories" className="text-blue-600 hover:underline mb-4 inline-block">
-        ← Back to Categories
+        Back to Categories
       </Link>
       
       <div className="grid md:grid-cols-2 gap-8 mt-4">
@@ -49,7 +49,7 @@ export default function ProductDetailPage() {
               className="object-contain"
             />
           </div>
-          <div className="flex gap-2 overflow-x-auto">
+          {/* <div className="flex gap-2 overflow-x-auto">
             {product.images.map((img, idx) => (
               <button
                 key={idx}
@@ -61,7 +61,7 @@ export default function ProductDetailPage() {
                 <Image src={img} alt={`${product.name} view ${idx + 1}`} fill className="object-cover" />
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Right side - Product Info */}
@@ -108,10 +108,10 @@ export default function ProductDetailPage() {
 
           <div className="border-t pt-4">
             <p className="text-sm text-gray-500">
-              ✓ Free shipping on orders over $50
+              ✓ Free shipping on orders over INR 199
             </p>
             <p className="text-sm text-gray-500">
-              ✓ 30-day easy returns
+              ✓ 7-day easy returns
             </p>
           </div>
         </div>

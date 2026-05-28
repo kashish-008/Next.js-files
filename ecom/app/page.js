@@ -23,7 +23,7 @@ export default function HomePage() {
       <section className="grid md:grid-cols-3 gap-8 mb-12">
         <div className="text-center p-6 bg-white rounded-lg shadow">
           <h3 className="text-xl font-semibold mb-2">Free Shipping</h3>
-          <p className="text-gray-600">On orders over $50</p>
+          <p className="text-gray-600">On orders over INR 1 99</p>
         </div>
         <div className="text-center p-6 bg-white rounded-lg shadow">
           <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
@@ -31,7 +31,7 @@ export default function HomePage() {
         </div>
         <div className="text-center p-6 bg-white rounded-lg shadow">
           <h3 className="text-xl font-semibold mb-2">Easy Returns</h3>
-          <p className="text-gray-600">30-day return policy</p>
+          <p className="text-gray-600">7-day return policy</p>
         </div>
       </section>
 

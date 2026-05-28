@@ -2,11 +2,7 @@ import { products, categories } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-
-export async function generateStaticParams() {
-  return categories.map((category) => ({ slug: category.slug }));
-}
-
+    
 export default async function CategoryProductsPage({ params }) {
   const { slug } = await params;
   const categoryData = categories.find(cat => cat.slug === slug);
