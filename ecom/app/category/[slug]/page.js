@@ -1,13 +1,14 @@
 import { products, categories } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   return categories.map((category) => ({ slug: category.slug }));
 }
 
-export default function CategoryProductsPage({ params }) {
-  const { slug } = params;
+export default async function CategoryProductsPage({ params }) {
+  const { slug } = await params;
   const categoryData = categories.find(cat => cat.slug === slug);
   
   if (!categoryData) {
@@ -20,6 +21,9 @@ export default function CategoryProductsPage({ params }) {
 
   return (
     <div>
+      <Link href="/categories" className="text-blue-600 hover:underline mb-4 inline-block">
+         Back to Categories
+      </Link>
       <h1 className="text-3xl font-bold mb-4 text-center">
         {categoryData.name}
       </h1>

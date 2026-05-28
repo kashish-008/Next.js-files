@@ -23,15 +23,15 @@ export const products = [
 
   // Electronic category (4 products)
   { id: 12, name: '4K Smart TV', description: '55 inch, HDR, smart features', price: 599.99, category: 'electronic', thumbnail: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=300', images: ['https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=500'] },
-  { id: 13, name: 'Air Purifier', description: 'HEPA filter, quiet operation', price: 149.99, category: 'electronic', thumbnail: 'https://images.unsplash.com/photo-1585771724683-4d0f5c0ea6d5?w=300', images: ['https://images.unsplash.com/photo-1585771724683-4d0f5c0ea6d5?w=500'] },
+  { id: 13, name: 'Air Purifier', description: 'HEPA filter, quiet operation', price: 149.99, category: 'electronic', thumbnail: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=300', images: ['https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500'] },
   { id: 14, name: 'Microwave Oven', description: '900W, digital controls', price: 129.99, category: 'electronic', thumbnail: 'https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=300', images: ['https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=500'] },
   { id: 15, name: 'Vacuum Cleaner', description: 'Cordless, lightweight', price: 249.99, category: 'electronic', thumbnail: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=300', images: ['https://images.unsplash.com/photo-1558317374-067fb5f30001?w=500'] },
 
   // Grocery category (6 products)
-  { id: 16, name: 'Organic Rice', description: '5kg, premium quality', price: 15.99, category: 'grocery', thumbnail: 'https://images.unsplash.com/photo-1586201375761-83865001e8ac?w=300', images: ['https://images.unsplash.com/photo-1586201375761-83865001e8ac?w=500'] },
+  { id: 16, name: 'Organic Rice', description: '5kg, premium quality', price: 15.99, category: 'grocery', thumbnail: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=300', images: ['https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=500'] },
   { id: 17, name: 'Olive Oil', description: 'Extra virgin, 1 liter', price: 12.99, category: 'grocery', thumbnail: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=300', images: ['https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500'] },
   { id: 18, name: 'Fresh Fruits Basket', description: 'Seasonal fruits, 2kg', price: 24.99, category: 'grocery', thumbnail: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=300', images: ['https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=500'] },
-  { id: 19, name: 'Whole Wheat Bread', description: 'Fresh baked, 400g', price: 4.99, category: 'grocery', thumbnail: 'https://images.unsplash.com/photo-1509440159596-0249085222b9?w=300', images: ['https://images.unsplash.com/photo-1509440159596-0249085222b9?w=500'] },
+  { id: 19, name: 'Whole Wheat Bread', description: 'Fresh baked, 400g', price: 4.99, category: 'grocery', thumbnail: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300', images: ['https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500'] },
   { id: 20, name: 'Milk Pack', description: '1 liter, pasteurized', price: 3.99, category: 'grocery', thumbnail: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=300', images: ['https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500'] },
   { id: 21, name: 'Spices Set', description: '6 essential spices', price: 18.99, category: 'grocery', thumbnail: 'https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=300', images: ['https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=500'] }
 ];

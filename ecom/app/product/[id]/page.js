@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { products } from '@/data/products';
 import { useAppContext } from '@/context/AppContext';
 import QuantitySelector from '@/components/QuantitySelector';
+import { formatPrice } from '@/utils/formatPrice';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import Link from 'next/link';
 
@@ -69,7 +70,7 @@ export default function ProductDetailPage() {
           <p className="text-gray-600 mb-4">{product.description}</p>
           
           <div className="text-3xl font-bold text-blue-600 mb-6">
-            ${product.price}
+            {formatPrice(product.price)}
           </div>
 
           {/* Quantity Selector */}

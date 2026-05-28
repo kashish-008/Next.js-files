@@ -5,10 +5,9 @@ import toast from 'react-hot-toast';
 const AppContext = createContext();
 
 export function AppProvider({ children }) {
-  // Cart state: { id, name, price, thumbnail, quantity }
   const [cartItems, setCartItems] = useState([]);
-  // Wishlist state: array of product ids
   const [wishlistIds, setWishlistIds] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false); // NEW: sidebar state
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -18,7 +17,7 @@ export function AppProvider({ children }) {
     if (savedWishlist) setWishlistIds(JSON.parse(savedWishlist));
   }, []);
 
-  // Save to localStorage whenever state changes
+  // Save to localStorage
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
@@ -47,6 +46,8 @@ export function AppProvider({ children }) {
       }];
     });
     toast.success(`${product.name} added to cart!`);
+    // Optionally auto-open sidebar? Many stores do this. Uncomment if desired:
+    // setIsCartOpen(true);
   };
 
   const updateQuantity = (productId, newQuantity) => {
@@ -95,6 +96,10 @@ export function AppProvider({ children }) {
     }
   };
 
+  // Cart sidebar controls
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
+
   return (
     <AppContext.Provider value={{
       cartItems,
@@ -104,7 +109,10 @@ export function AppProvider({ children }) {
       getCartTotalCount,
       getCartTotalPrice,
       toggleWishlist,
-      isInWishlist
+      isInWishlist,
+      isCartOpen,
+      openCart,
+      closeCart
     }}>
       {children}
     </AppContext.Provider>

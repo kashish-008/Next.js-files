@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaHeart, FaShoppingCart, FaInfoCircle } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
+import { formatPrice } from '@/utils/formatPrice';
 
 export default function ProductCard({ product }) {
   const { addToCart, toggleWishlist, isInWishlist } = useAppContext();
@@ -21,7 +22,7 @@ export default function ProductCard({ product }) {
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
         <p className="text-gray-600 text-sm mb-2 line-clamp-2">{product.description}</p>
-        <p className="text-xl font-bold text-blue-600 mb-3">${product.price}</p>
+        <p className="text-xl font-bold text-blue-600 mb-3">{formatPrice(product.price)}</p>
         
         <div className="flex gap-2">
           <button
