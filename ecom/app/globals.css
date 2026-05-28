@@ -2,7 +2,10 @@
 
 @layer base {
   body {
-    @apply bg-gray-50;
+     background: bg-gray-50;
      font-family: Arial, Helvetica, sans-serif;
+  }
+  * {
+    box-sizing: border-box;
   }
 }
