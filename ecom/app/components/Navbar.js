@@ -2,10 +2,10 @@
 import Link from 'next/link';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { useAppContext } from '@/context/AppContext';
-import CartSidebar from './CartSidebar'; // Import the sidebar
+import CartSidebar from './CartSidebar'; 
 
 export default function Navbar() {
-  const { getCartTotalCount, wishlistIds, openCart } = useAppContext(); 
+  const { getCartTotalCount, wishlistIds, openCart, user, logout } = useAppContext(); 
   const cartCount = getCartTotalCount();
   const wishlistCount = wishlistIds.length;
 
@@ -26,6 +26,16 @@ export default function Navbar() {
             <Link href="/categories" className="text-gray-700 hover:text-blue-600 transition">
               Categories
             </Link>
+
+             {/* ✅ AUTH LINKS – ADD THEM HERE */}
+            {!user ? (
+              <>
+                <Link href="/login" className="text-gray-700 hover:text-blue-600">Login</Link>
+                <Link href="/signup" className="text-gray-700 hover:text-blue-600">Sign Up</Link>
+              </>
+            ) : (
+              <button onClick={logout} className="text-gray-700 hover:text-blue-600">Logout</button>
+            )}
             
             {/* Wishlist Icon */}
             <Link href="/wishlist" className="relative">
@@ -49,7 +59,7 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <CartSidebar /> {/* Render sidebar here */}
+      <CartSidebar /> 
     </>
   );
 }
