@@ -43,8 +43,6 @@ export default function SignupPage() {
     setLoading(true);
 
     try {
-      // Create user object
-      // Call login from context (auto-login after signup)
       const userData = { name, email };
       login(userData);
 

@@ -26,7 +26,7 @@ export const categories = [
 ];
 
 export const products = [
-  // Cloth category (6 products)
+  // Cloth category (9 products)
   {
     id: 1,
     name: "Premium Cotton T-Shirt",
@@ -97,6 +97,42 @@ export const products = [
       "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=300",
     images: [
       "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500",
+    ],
+  },
+  {
+    id: 22,
+    name: "Linen Button-Down Shirt",
+    description: "Lightweight linen for warm days",
+    price: 44.99,
+    category: "cloth",
+    thumbnail:
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=300",
+    images: [
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500",
+    ],
+  },
+  {
+    id: 23,
+    name: "Knit Sweater",
+    description: "Cozy knit for cooler evenings",
+    price: 64.99,
+    category: "cloth",
+    thumbnail:
+      "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=300",
+    images: [
+      "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=500",
+    ],
+  },
+  {
+    id: 24,
+    name: "Athletic Joggers",
+    description: "Stretch joggers with tapered fit",
+    price: 39.99,
+    category: "cloth",
+    thumbnail:
+      "https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=300",
+    images: [
+      "https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=500",
     ],
   },
 
