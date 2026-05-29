@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: #080808;
+    color: #f0ece4;
+    font-family: var(--font-body), 'Crimson Pro', serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  @media (hover: none) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c9a84c;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  ul, ol {
+    list-style: none;
+  }
+  em {
+    font-style: italic;
+    color: #c9a84c;
+  }
+}
+
+@layer components {
+  /* Grain overlay - exact same SVG pattern */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    animation: grainShift 0.5s steps(1) infinite;
+  }
+
+  /* Scanlines */
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    );
+    z-index: 1;
+  }
+
+  /* Reveal classes for GSAP */
+  .reveal-para {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  .reveal-card {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .reveal-block {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /* Additional custom styles */
+  .title-word-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px #f0ece4;
+  }
+
+  .proj-visual-lines div {
+    height: 1px;
+    background: #3a3a3a;
+    transition: background 0.3s, width 0.3s;
+  }
+  .proj-visual-lines div:nth-child(2) { width: 75%; }
+  .proj-visual-lines div:nth-child(3) { width: 55%; }
+  .proj-visual-lines div:nth-child(4) { width: 85%; }
+  .group:hover .proj-visual-lines div {
+    background: #9a7a33;
+  }
+  .cert-link::after {
+    content: "↗";
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+  }
+  .cert-link:hover::after {
+    transform: translate(2px, -2px);
+  }
+}
+
+@layer utilities {
+  .writing-mode-vertical {
+    writing-mode: vertical-rl;
+  }
+  .modal-reveal {
+    animation: modalReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* ========== KEYFRAMES (originally from style.css) ========== */
+@keyframes grainShift {
+  0% { background-position: 0 0; }
+  20% { background-position: -40px 20px; }
+  40% { background-position: 20px -30px; }
+  60% { background-position: -10px 40px; }
+  80% { background-position: 30px -10px; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes loaderFill {
+  to { left: 0; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes scrollThumb {
+  0% { top: -40%; }
+  100% { top: 140%; }
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes modalReveal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Ensure loader bar animation works */
+.loader-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #c9a84c;
+  animation: loaderFill 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scroll thumb animation */
+.scroll-prompt-thumb {
+  animation: scrollThumb 2s ease-in-out infinite;
+}
+
+/* Marquee animation (if used without Tailwind) */
+.marquee-track {
+  animation: marqueeScroll 20s linear infinite;
+}
+
+/* Fade-in utility (fallback) */
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

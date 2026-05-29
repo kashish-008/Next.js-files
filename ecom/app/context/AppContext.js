@@ -9,6 +9,7 @@ export function AppProvider({ children }) {
   const [wishlistIds, setWishlistIds] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [isReady, setIsReady] = useState(false);
 
   // Add login/logout functions
   const login = (userData) => {
@@ -33,6 +34,7 @@ export function AppProvider({ children }) {
 
     const savedWishlist = localStorage.getItem("wishlist");
     if (savedWishlist) setWishlistIds(JSON.parse(savedWishlist));
+    setIsReady(true);
   }, []);
 
   // Save to localStorage
@@ -146,6 +148,7 @@ export function AppProvider({ children }) {
         isCartOpen,
         openCart,
         closeCart,
+        isReady,
         user,
         login,
         logout,
