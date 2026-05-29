@@ -19,17 +19,19 @@ export function AppProvider({ children }) {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
-    setCartItems([]); // optional: clear cart on logout
-    setWishlistIds([]); // optional: clear wishlist
+    // setCartItems([]); 
+    // setWishlistIds([]); 
   };
 
   // Load from localStorage on mount
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) setUser(JSON.parse(savedUser));
+    
     const savedCart = localStorage.getItem("cart");
-    const savedWishlist = localStorage.getItem("wishlist");
     if (savedCart) setCartItems(JSON.parse(savedCart));
+
+    const savedWishlist = localStorage.getItem("wishlist");
     if (savedWishlist) setWishlistIds(JSON.parse(savedWishlist));
   }, []);
 

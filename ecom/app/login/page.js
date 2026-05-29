@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAppContext } from '@/context/AppContext';
-import { authenticateUser, validateLogin } from '@/utils/validation';
+import { validateEmail, validatePassword } from '@/utils/validation';
 import toast from 'react-hot-toast';
 
 export default function LoginPage() {
@@ -16,23 +16,27 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const errorMessage = validateLogin({ email, password });
-    if (errorMessage) {
-      toast.error(errorMessage);
+    const emailError = validateEmail(email);
+    if (emailError) {
+      toast.error(emailError);
       return;
     }
 
-    const authResult = authenticateUser({ email, password });
-    if (!authResult.ok) {
-      toast.error(authResult.error);
+    const passwordError = validatePassword(password);
+    if (passwordError) {
+      toast.error(passwordError);
       return;
     }
 
     setLoading(true);
     
+
     try {
       // Create user object
-      const userData = authResult.user;
+      const userData = {
+        email,
+        name: email.split('@')[0],
+      };
       
       // Call login from context
       login(userData);
