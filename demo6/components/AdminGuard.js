@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
-const ADMIN_PASSWORD = 'admin123'; // simple hardcoded password – for demo only
+const ADMIN_PASSWORD = 'admin123'; // for demo only
 
 export default function AdminGuard({ children }) {
   const [isAuthorized, setIsAuthorized] = useState(false);

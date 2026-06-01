@@ -2,7 +2,7 @@
 import { getPostBySlug, getAllPosts } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import CommentSection from '@/components/CommentSection'; // import the component
+import CommentSection from '@/components/CommentSection'; 
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
