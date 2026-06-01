@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.prose {
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
