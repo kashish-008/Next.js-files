@@ -2,6 +2,7 @@
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ToastProvider from '@/components/ToastProvider';
 
 export const metadata = {
   title: 'My Blog',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="flex flex-col min-h-screen">
         <Header />
+        <ToastProvider />
         <main className="flex grow container mx-auto px-4 py-8">
           {children}
         </main>
