@@ -81,7 +81,7 @@ export default function PostForm({ initialData = null, isEditing = false }) {
         />
       </div>
       <div>
-        <label className="block text-gray-700 mb-1">Content (HTML supported)</label>
+        <label className="block text-gray-700 mb-1">Content</label>
         <textarea
           name="content"
           value={formData.content}
