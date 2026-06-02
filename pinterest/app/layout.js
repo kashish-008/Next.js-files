@@ -1,4 +1,5 @@
 import './globals.css';
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
   title: 'Pinterest Clone',
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50">{children}</body>
+      <body className="bg-gray-50">
+        <Navbar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

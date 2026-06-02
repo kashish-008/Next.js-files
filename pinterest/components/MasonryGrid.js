@@ -1,5 +1,5 @@
 'use client';
-import { FixedSizeList as List } from 'react-window';
+import { List } from 'react-window';
 import { useState, useEffect, useCallback } from 'react';
 
 export default function MasonryGrid({ photos, children: PhotoCard }) {

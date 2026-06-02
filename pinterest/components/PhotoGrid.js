@@ -1,49 +1,62 @@
 'use client';
 import { useState, useCallback, useRef, useEffect } from 'react';
+import Masonry from 'react-masonry-css';
 import { usePhotos } from '@/hooks/usePhotos';
 import { filterPhotosByTitle } from '@/utils/helpers';
 import PhotoCard from './PhotoCard';
 import SearchBar from './SearchBar';
 import LoadingSkeleton from './LoadingSkeleton';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
-import MasonryGrid from './MasonryGrid';
+
+// Breakpoint columns for masonry
+const breakpointColumns = {
+  default: 4,    // ≥ 1100px
+  1100: 3,
+  700: 2,
+  500: 1
+};
 
 export default function PhotoGrid({ initialPhotos }) {
-  const [photos, setPhotos] = useState(initialPhotos);
+  const { photos: hookPhotos, loading, hasMore, loadMore } = usePhotos();
+  const [allPhotos, setAllPhotos] = useState(initialPhotos);
+  
+  // Merge new photos from hook
+  useEffect(() => {
+    if (hookPhotos.length > 0) {
+      setAllPhotos(prev => {
+        const existingIds = new Set(prev.map(p => p.id));
+        const newPhotos = hookPhotos.filter(p => !existingIds.has(p.id));
+        return [...prev, ...newPhotos];
+      });
+    }
+  }, [hookPhotos]);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [displayedPhotos, setDisplayedPhotos] = useState(initialPhotos);
-  const [loadingMore, setLoadingMore] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  const loaderRef = useRef(null);
-  const pageRef = useRef(1);
 
-  // Infinite scroll with Intersection Observer
   useEffect(() => {
+    const filtered = filterPhotosByTitle(allPhotos, searchTerm);
+    setDisplayedPhotos(filtered);
+  }, [allPhotos, searchTerm]);
+
+  // Infinite scroll
+  const loaderRef = useRef(null);
+  useEffect(() => {
+    if (searchTerm) return;
     const observer = new IntersectionObserver(
-      async (entries) => {
-        if (entries[0].isIntersecting && !loadingMore && hasMore && !searchTerm) {
-          setLoadingMore(true);
-          const nextPage = pageRef.current + 1;
-          const start = (nextPage - 1) * 20;
-          const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_start=${start}&_limit=20`);
-          const newPhotos = await res.json();
-          if (newPhotos.length < 20) setHasMore(false);
-          setPhotos(prev => [...prev, ...newPhotos]);
-          pageRef.current = nextPage;
-          setLoadingMore(false);
+      (entries) => {
+        if (entries[0].isIntersecting && !loading && hasMore) {
+          loadMore();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.5 }
     );
-    if (loaderRef.current) observer.observe(loaderRef.current);
-    return () => observer.disconnect();
-  }, [loadingMore, hasMore, searchTerm]);
-
-  // Update displayed photos when search or photos change
-  useEffect(() => {
-    let filtered = filterPhotosByTitle(photos, searchTerm);
-    setDisplayedPhotos(filtered);
-  }, [photos, searchTerm]);
+    const currentLoader = loaderRef.current;
+    if (currentLoader) observer.observe(currentLoader);
+    return () => {
+      if (currentLoader) observer.unobserve(currentLoader);
+    };
+  }, [searchTerm, loading, hasMore, loadMore]);
 
   const handleDragEnd = (result) => {
     if (!result.destination) return;
@@ -51,7 +64,6 @@ export default function PhotoGrid({ initialPhotos }) {
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
     setDisplayedPhotos(items);
-    // Optional: sync with original photos list? We'll keep separate for drag demo.
   };
 
   return (
@@ -64,7 +76,11 @@ export default function PhotoGrid({ initialPhotos }) {
         <Droppable droppableId="grid" direction="vertical">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              <Masonry
+                breakpointCols={breakpointColumns}
+                className="masonry-grid"
+                columnClassName="masonry-grid_column"
+              >
                 {displayedPhotos.map((photo, index) => (
                   <Draggable key={photo.id} draggableId={String(photo.id)} index={index}>
                     {(provided) => (
@@ -78,7 +94,7 @@ export default function PhotoGrid({ initialPhotos }) {
                     )}
                   </Draggable>
                 ))}
-              </div>
+              </Masonry>
               {provided.placeholder}
             </div>
           )}
@@ -87,8 +103,10 @@ export default function PhotoGrid({ initialPhotos }) {
 
       {!searchTerm && (
         <div ref={loaderRef} className="flex justify-center py-8">
-          {loadingMore && <LoadingSkeleton />}
-          {!hasMore && <p className="text-gray-500">No more photos 🎉</p>}
+          {loading && <LoadingSkeleton />}
+          {!hasMore && !loading && allPhotos.length > 20 && (
+            <p className="text-gray-500 text-center">✨ You've reached the end ✨</p>
+          )}
         </div>
       )}
     </div>
