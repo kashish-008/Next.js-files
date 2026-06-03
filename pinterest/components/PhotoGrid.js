@@ -40,23 +40,41 @@ export default function PhotoGrid({ initialPhotos }) {
   }, [allPhotos, searchTerm]);
 
   // Infinite scroll
-  const loaderRef = useRef(null);
-  useEffect(() => {
-    if (searchTerm) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !loading && hasMore) {
-          loadMore();
-        }
-      },
-      { threshold: 0.5 }
-    );
-    const currentLoader = loaderRef.current;
-    if (currentLoader) observer.observe(currentLoader);
-    return () => {
-      if (currentLoader) observer.unobserve(currentLoader);
-    };
-  }, [searchTerm, loading, hasMore, loadMore]);
+// Inside PhotoGrid component, after your state declarations
+
+const loaderRef = useRef(null);
+const isLoadingMore = useRef(false);  // lock to prevent multiple loads
+
+useEffect(() => {
+  if (searchTerm) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const target = entries[0];
+      // Only trigger if loader is intersecting, not already loading, and more photos exist
+      if (target.isIntersecting && !isLoadingMore.current && hasMore) {
+        isLoadingMore.current = true;
+        loadMore().finally(() => {
+          // Unlock after a short delay to avoid rapid refires
+          setTimeout(() => {
+            isLoadingMore.current = false;
+          }, 500);
+        });
+      }
+    },
+    { 
+      threshold: 0.1,       // trigger when 10% visible
+      rootMargin: '0px 0px 200px 0px'  // load when 200px before bottom (smoother)
+    }
+  );
+
+  const currentLoader = loaderRef.current;
+  if (currentLoader) observer.observe(currentLoader);
+
+  return () => {
+    if (currentLoader) observer.unobserve(currentLoader);
+  };
+}, [searchTerm, hasMore, loadMore]); // note: loading is not a dependency; we use ref
 
   const handleDragEnd = (result) => {
     if (!result.destination) return;
