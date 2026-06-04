@@ -13,7 +13,7 @@ export default function MasonryGrid({ photos, children: PhotoCard }) {
       else if (width < 1024) setColumnCount(3);
       else setColumnCount(4);
     };
-    updateColumns();
+    updateColumns();  
     window.addEventListener('resize', updateColumns);
     return () => window.removeEventListener('resize', updateColumns);
   }, []);

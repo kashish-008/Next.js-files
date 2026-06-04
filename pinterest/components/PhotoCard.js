@@ -8,13 +8,11 @@ function getRandomHeight(id) {
   return 200 + (hash % 301); // between 200 and 500
 }
 
-export default function PhotoCard({ photo, draggableProps, dragHandleProps }) {
+export default function PhotoCard({ photo }) {
   const imageHeight = getRandomHeight(photo.id);
 
   return (
     <div
-      {...draggableProps}
-      {...dragHandleProps}
       className="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
     >
       <Link href={`/photo/${photo.id}`}>

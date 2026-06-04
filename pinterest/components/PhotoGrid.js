@@ -6,7 +6,6 @@ import { filterPhotosByTitle } from '@/utils/helpers';
 import PhotoCard from './PhotoCard';
 import SearchBar from './SearchBar';
 import LoadingSkeleton from './LoadingSkeleton';
-import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 
 // Breakpoint columns for masonry
 const breakpointColumns = {
@@ -76,13 +75,7 @@ useEffect(() => {
   };
 }, [searchTerm, hasMore, loadMore]); // note: loading is not a dependency; we use ref
 
-  const handleDragEnd = (result) => {
-    if (!result.destination) return;
-    const items = Array.from(displayedPhotos);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
-    setDisplayedPhotos(items);
-  };
+  // drag & drop removed: list is displayed as-is
 
   return (
     <div className="container mx-auto px-4 py-6">
@@ -90,34 +83,19 @@ useEffect(() => {
         <SearchBar onSearch={setSearchTerm} />
       </div>
 
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <Droppable droppableId="grid" direction="vertical">
-          {(provided) => (
-            <div {...provided.droppableProps} ref={provided.innerRef}>
-              <Masonry
-                breakpointCols={breakpointColumns}
-                className="masonry-grid"
-                columnClassName="masonry-grid_column"
-              >
-                {displayedPhotos.map((photo, index) => (
-                  <Draggable key={photo.id} draggableId={String(photo.id)} index={index}>
-                    {(provided) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <PhotoCard photo={photo} />
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-              </Masonry>
-              {provided.placeholder}
+      <div>
+        <Masonry
+          breakpointCols={breakpointColumns}
+          className="masonry-grid"
+          columnClassName="masonry-grid_column"
+        >
+          {displayedPhotos.map((photo) => (
+            <div key={photo.id}>
+              <PhotoCard photo={photo} />
             </div>
-          )}
-        </Droppable>
-      </DragDropContext>
+          ))}
+        </Masonry>
+      </div>
 
       {!searchTerm && (
         <div ref={loaderRef} className="flex justify-center py-8">
