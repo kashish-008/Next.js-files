@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useImperativeHandle, useRef, useState } from "react";
 import {
   Music2,
   Pause,
@@ -16,7 +16,7 @@ const birthdayTrack = {
   url: "/music/birthday-music-box.mp3",
 };
 
-export default function BirthdayPlaylist() {
+export default function BirthdayPlaylist({ playerRef }) {
   const [tracks, setTracks] = useState([birthdayTrack]);
   const [selected, setSelected] = useState(0);
   const [playing, setPlaying] = useState(false);
@@ -26,6 +26,42 @@ export default function BirthdayPlaylist() {
   const panel = useRef(null);
   const trigger = useRef(null);
   const localUrls = useRef([]);
+  const openingStarted = useRef(false);
+  const revealTimer = useRef(null);
+  useImperativeHandle(
+    playerRef,
+    () => ({
+      startAfterOpening(delay) {
+        if (openingStarted.current) return;
+        openingStarted.current = true;
+        const player = audio.current;
+        // Start inside the gift click so mobile browsers grant audio playback.
+        // Keep it silent until the curtains have finished opening.
+        player.volume = 0;
+        player.src = birthdayTrack.url;
+        setSelected(0);
+        setError("");
+        player
+          .play()
+          .then(() => setPlaying(true))
+          .catch(() => {
+            setPlaying(false);
+            setError("Tap play to start your birthday music.");
+          });
+        revealTimer.current = setTimeout(() => {
+          player.volume = 0.65;
+        }, delay);
+      },
+    }),
+    [],
+  );
+  useEffect(() => {
+    const player = audio.current;
+    return () => {
+      clearTimeout(revealTimer.current);
+      player.pause();
+    };
+  }, []);
   useEffect(
     () => () => localUrls.current.forEach((url) => URL.revokeObjectURL(url)),
     [],
@@ -48,6 +84,7 @@ export default function BirthdayPlaylist() {
     if (!track) return;
     setSelected(index);
     setError("");
+    audio.current.volume = 0.65;
     if (audio.current.getAttribute("src") !== track.url)
       audio.current.src = track.url;
     try {
