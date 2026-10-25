@@ -17,8 +17,24 @@ const birthdayTrack = {
   url: "/music/birthday-music-box.mp3",
 };
 
+const permanentTracks = [
+  birthdayTrack,
+  {
+    id: "happy-birthday-diljit",
+    title: "Happy Birthday",
+    detail: "Diljit Dosanjh",
+    url: "/music/happy-birthday-diljit-dosanjh.mp3",
+  },
+  {
+    id: "birthday-jordan-sandhu",
+    title: "Birthday",
+    detail: "Jordan Sandhu",
+    url: "/music/birthday-jordan-sandhu.mp3",
+  },
+];
+
 export default function BirthdayPlaylist({ playerRef }) {
-  const [tracks, setTracks] = useState([birthdayTrack]);
+  const [tracks, setTracks] = useState(permanentTracks);
   const [selected, setSelected] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [open, setOpen] = useState(false);
