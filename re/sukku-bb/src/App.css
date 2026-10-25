@@ -2361,3 +2361,110 @@ h3 {
     font-size: 20px;
   }
 }
+
+/* Two identical groups keep the birthday ribbon moving without a visible reset. */
+.ticker {
+  text-align: left;
+  padding: 18px 0;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: birthday-marquee 32s linear infinite;
+  will-change: transform;
+}
+.ticker-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: none;
+  min-width: 100vw;
+  gap: 42px;
+  padding: 0 28px;
+  white-space: nowrap;
+}
+.ticker-group > span {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  word-spacing: 3px;
+}
+.ticker-group i {
+  font-style: normal;
+  font-family: Georgia, serif;
+  font-size: 27px;
+}
+.birthday-app {
+  position: relative;
+  isolation: isolate;
+}
+.birthday-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  overflow: hidden;
+}
+.background-charm {
+  position: absolute;
+  left: var(--charm-x);
+  top: var(--charm-y);
+  color: #b65d6e;
+  opacity: 0.19;
+  rotate: var(--charm-turn);
+  animation: charm-drift 8s var(--charm-delay) ease-in-out infinite alternate;
+}
+.background-charm:nth-child(3n) {
+  color: #bd8f40;
+}
+.background-charm:nth-child(4n) {
+  color: #8b9b7a;
+}
+.balloon:active {
+  scale: 1.08;
+}
+.balloon {
+  transition: scale 0.2s;
+}
+@keyframes birthday-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes charm-drift {
+  to {
+    translate: 4px -16px;
+    rotate: 8deg;
+  }
+}
+@media (max-width: 600px) {
+  .ticker {
+    padding: 14px 0;
+  }
+  .ticker-group {
+    gap: 28px;
+    padding: 0 18px;
+  }
+  .ticker-group > span {
+    gap: 22px;
+  }
+  .ticker-group i {
+    font-size: 22px;
+  }
+  .background-charm svg {
+    width: 17px;
+    height: 17px;
+  }
+  .background-charm {
+    opacity: 0.15;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none !important;
+    will-change: auto;
+  }
+  .background-charm {
+    animation: none !important;
+  }
+}
