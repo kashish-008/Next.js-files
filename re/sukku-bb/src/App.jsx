@@ -634,6 +634,7 @@ export default function App() {
                 >
                   <span className="object-icon" aria-hidden="true">
                     <SukkuSticker
+                      scene={moment.scene}
                       mood={
                         [
                           "surprise",
