@@ -1,0 +1,10 @@
+{
+  "name": "re-app",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix sukku-bb run dev",
+    "build": "npm --prefix sukku-bb run build",
+    "lint": "npm --prefix sukku-bb run lint",
+    "preview": "npm --prefix sukku-bb run preview"
+  }
+}
