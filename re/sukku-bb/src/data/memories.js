@@ -9,84 +9,76 @@ import memory08 from "../assets/photos/memory-08.jpg";
 import memory09 from "../assets/photos/memory-09.jpg";
 import memory10 from "../assets/photos/memory-10.jpg";
 
+// Replace these sample captions and photos with your own before sharing.
 export const memories = [
   {
     id: 1,
-    date: "01 January 2025",
-    title: "A New Beginning",
+    date: "Memory 01",
+    title: "The beginning",
     image: memory01,
-    text: "Some beautiful moments are worth remembering forever.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 2,
-    date: "14 February 2025",
-    title: "A Little Love Story",
+    date: "Memory 02",
+    title: "A favourite day",
     image: memory02,
-    text: "A simple day, a beautiful memory, and a lot of smiles.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 3,
-    date: "20 March 2025",
-    title: "Just Us",
+    date: "Memory 03",
+    title: "A little adventure",
     image: memory03,
-    text: "Sometimes the simplest moments become our favourite ones.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 4,
-    date: "05 April 2025",
-    title: "That Happy Day",
+    date: "Memory 04",
+    title: "Just us",
     image: memory04,
-    text: "One of those days that you wish could last a little longer.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 5,
-    date: "16 June 2025",
-    title: "A Special Chapter",
+    date: "Memory 05",
+    title: "A happy chapter",
     image: memory05,
-    text: "A new chapter started, filled with little adventures and memories.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 6,
-    date: "28 June 2025",
-    title: "Little Adventures",
+    date: "Memory 06",
+    title: "Somewhere together",
     image: memory06,
-    text: "Exploring places together and collecting moments along the way.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 7,
-    date: "10 July 2025",
-    title: "A Day To Remember",
+    date: "Memory 07",
+    title: "One more photo",
     image: memory07,
-    text: "A beautiful day made special simply because we were together.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 8,
-    date: "23 October 2025",
-    title: "Birthday Week",
+    date: "Memory 08",
+    title: "Birthday week",
     image: memory08,
-    text: "A week full of smiles, surprises, laughter and unforgettable moments.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 9,
-    date: "27 October 2025",
-    title: "The Birthday Girl",
+    date: "Memory 09",
+    title: "The birthday girl",
     image: memory09,
-    text: "A special birthday for a very special person.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
-
   {
     id: 10,
-    date: "29 October 2025",
-    title: "Until The Next Memory",
+    date: "Memory 10",
+    title: "More memories to come",
     image: memory10,
-    text: "Some goodbyes are not endings. They are simply a pause before the next beautiful memory.",
+    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
   },
 ];
