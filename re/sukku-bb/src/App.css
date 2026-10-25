@@ -1683,3 +1683,33 @@ h3 {
     filter: none;
   }
 }
+
+.personal-photo {
+  display: block;
+  width: 100%;
+  height: 365px;
+  overflow: hidden;
+  background: #eee1cf;
+}
+.hero-photo .personal-photo {
+  height: 330px;
+}
+.memory-photo .personal-photo {
+  height: 365px;
+}
+@media (max-width: 900px) {
+  .hero-photo .personal-photo {
+    height: 280px;
+  }
+  .memory-photo .personal-photo {
+    height: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-photo .personal-photo {
+    height: 260px;
+  }
+  .memory-photo .personal-photo {
+    height: 315px;
+  }
+}

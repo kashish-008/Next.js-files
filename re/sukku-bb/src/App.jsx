@@ -67,6 +67,26 @@ const letters = [
   },
 ];
 
+function MemoryPhoto({ memory, eager = false }) {
+  return (
+    <svg
+      className="personal-photo"
+      viewBox={memory.crop.join(" ")}
+      preserveAspectRatio="xMidYMid slice"
+      role="img"
+      aria-label={memory.title}
+    >
+      <image
+        href={memory.image}
+        width={memory.size[0]}
+        height={memory.size[1]}
+        decoding="async"
+        fetchPriority={eager ? "high" : "auto"}
+      />
+    </svg>
+  );
+}
+
 function Confetti({ burst }) {
   return (
     <div className="confetti" key={burst} aria-hidden="true">
@@ -277,10 +297,7 @@ export default function App() {
                 OCTOBER
               </div>
               <div className="polaroid hero-photo">
-                <img
-                  src={memories[0].image}
-                  alt="A photo from our memory collection"
-                />
+                <MemoryPhoto memory={memories[0]} eager />
                 <span>my favourite person, always.</span>
               </div>
               <div className="mini-note">
@@ -350,7 +367,7 @@ export default function App() {
                 <div className="paper-behind" />
                 <article className="polaroid memory-photo" key={memory.id}>
                   <span className="tape" />
-                  <img src={memory.image} alt={memory.title} loading="lazy" />
+                  <MemoryPhoto memory={memory} />
                   <span>
                     {String(slide + 1).padStart(2, "0")} / little moments, big
                     feelings ♡
@@ -387,8 +404,9 @@ export default function App() {
                   </button>
                 </div>
                 <small>
-                  Photos are from the existing collection.
-                  <br />A little space for your favourite captions.
+                  Your photos, little pieces of our world.
+                  <br />
+                  Some things are worth keeping.
                 </small>
               </div>
             </div>

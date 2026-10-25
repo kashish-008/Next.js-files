@@ -1,84 +1,99 @@
-import memory01 from "../assets/photos/memory-01.jpg";
-import memory02 from "../assets/photos/memory-02.jpg";
-import memory03 from "../assets/photos/memory-03.jpg";
-import memory04 from "../assets/photos/memory-04.jpg";
-import memory05 from "../assets/photos/memory-05.jpg";
-import memory06 from "../assets/photos/memory-06.jpg";
-import memory07 from "../assets/photos/memory-07.jpg";
-import memory08 from "../assets/photos/memory-08.jpg";
-import memory09 from "../assets/photos/memory-09.jpg";
-import memory10 from "../assets/photos/memory-10.jpg";
+import portraits from "../assets/photos/personal/portraits.webp";
+import together from "../assets/photos/personal/together.webp";
+import keepsakes from "../assets/photos/personal/keepsakes.webp";
+import eyes from "../assets/photos/personal/eyes.webp";
 
-// Replace these sample captions and photos with your own before sharing.
+// View boxes frame the original collages without changing anyone's appearance.
+// Captions describe the pictures; dates and events are deliberately not guessed.
 export const memories = [
   {
     id: 1,
-    date: "Memory 01",
-    title: "The beginning",
-    image: memory01,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: portraits,
+    size: [2048, 2003],
+    crop: [1120, 1166, 711, 777],
+    date: "Little pieces of us",
+    title: "My favourite birthday girl",
+    text: "Aapki ek smile. Aur meri favourite photo.",
   },
   {
     id: 2,
-    date: "Memory 02",
-    title: "A favourite day",
-    image: memory02,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: portraits,
+    size: [2048, 2003],
+    crop: [281, 114, 725, 795],
+    date: "Little pieces of us",
+    title: "An evening worth keeping",
+    text: "Kuch photos ko dekh kar bas smile aa jaati hai.",
   },
   {
     id: 3,
-    date: "Memory 03",
-    title: "A little adventure",
-    image: memory03,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: portraits,
+    size: [2048, 2003],
+    crop: [1200, 118, 725, 795],
+    date: "Little pieces of us",
+    title: "A little sunshine",
+    text: "Aap, aur aapki simple si pyaari smile.",
   },
   {
     id: 4,
-    date: "Memory 04",
-    title: "Just us",
-    image: memory04,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: portraits,
+    size: [2048, 2003],
+    crop: [205, 1172, 702, 777],
+    date: "Little pieces of us",
+    title: "Somewhere, with you",
+    text: "Aisi aur bahut saari photos collect karni hain.",
   },
   {
     id: 5,
-    date: "Memory 05",
-    title: "A happy chapter",
-    image: memory05,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: together,
+    size: [2048, 2003],
+    crop: [281, 114, 725, 795],
+    date: "Little pieces of us",
+    title: "A little pink, a lot of happy",
+    text: "Photo se zyada, is smile ko sambhal kar rakhna hai.",
   },
   {
     id: 6,
-    date: "Memory 06",
-    title: "Somewhere together",
-    image: memory06,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: together,
+    size: [2048, 2003],
+    crop: [1200, 118, 725, 795],
+    date: "Little pieces of us",
+    title: "Under the lights",
+    text: "Madam ji ki photos ka collection kabhi poora nahi hota.",
   },
   {
     id: 7,
-    date: "Memory 07",
-    title: "One more photo",
-    image: memory07,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: together,
+    size: [2048, 2003],
+    crop: [205, 1172, 702, 777],
+    date: "Little pieces of us",
+    title: "Us, illustrated",
+    text: "Hamari little cartoon version. Same favourite company.",
   },
   {
     id: 8,
-    date: "Memory 08",
-    title: "Birthday week",
-    image: memory08,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: together,
+    size: [2048, 2003],
+    crop: [1120, 1166, 711, 777],
+    date: "Little pieces of us",
+    title: "One more version of us",
+    text: "Ek aur photo, ek aur reason to smile.",
   },
   {
     id: 9,
-    date: "Memory 09",
-    title: "The birthday girl",
-    image: memory09,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: eyes,
+    size: [1152, 2048],
+    crop: [71, 358, 859, 1341],
+    date: "Little pieces of us",
+    title: "Aankhon wali baat",
+    text: "Kuch baatein words se pehle aankhein keh deti hain.",
   },
   {
     id: 10,
-    date: "Memory 10",
-    title: "More memories to come",
-    image: memory10,
-    text: "A little space for your story. Add a favourite memory, a funny detail, or the reason this photo makes you smile.",
+    image: keepsakes,
+    size: [1080, 1528],
+    crop: [782, 1103, 240, 339],
+    date: "Little pieces of us",
+    title: "The little things",
+    text: "Kabhi ek haath pakadna hi kaafi hota hai.",
   },
 ];
