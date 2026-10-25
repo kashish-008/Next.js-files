@@ -6,6 +6,11 @@ import {
   Music2,
   VolumeX,
   X,
+  Heart,
+  Gift,
+  Sparkles,
+  PartyPopper,
+  Cake,
 } from "lucide-react";
 import { memories } from "./data/memories";
 
@@ -102,6 +107,41 @@ function MemoryPhoto({ memory, eager = false }) {
   );
 }
 
+function BirthdayBackdrop() {
+  const decorations = [
+    Heart,
+    Gift,
+    Sparkles,
+    Cake,
+    Heart,
+    PartyPopper,
+    Gift,
+    Heart,
+    Sparkles,
+    Cake,
+    PartyPopper,
+    Heart,
+  ];
+  return (
+    <div className="birthday-backdrop" aria-hidden="true">
+      {decorations.map((Icon, i) => (
+        <span
+          key={i}
+          className="background-charm"
+          style={{
+            "--charm-x": `${i % 2 ? 94 : 2}%`,
+            "--charm-y": `${8 + Math.floor(i / 2) * 16}%`,
+            "--charm-delay": `${-i * 0.8}s`,
+            "--charm-turn": `${i % 2 ? 15 : -18}deg`,
+          }}
+        >
+          <Icon size={i % 3 === 0 ? 28 : 22} strokeWidth={1.2} />
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function Confetti({ burst }) {
   return (
     <div className="confetti" key={burst} aria-hidden="true">
@@ -182,7 +222,6 @@ export default function App() {
   const [wish, setWish] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
-  const [popped, setPopped] = useState([]);
   const audio = useRef(null);
   useEffect(() => {
     if (opened) return;
@@ -281,6 +320,7 @@ export default function App() {
         className={`birthday-app ${opened || unwrapping ? "is-open" : ""}`}
         inert={!opened}
       >
+        <BirthdayBackdrop />
         <header>
           <a href="#home" className="brand">
             S<span>♡</span>A
@@ -344,24 +384,22 @@ export default function App() {
                 ✧
               </span>
               {["Make a wish!", "Extra pyaar today", "Birthday hugs!"].map(
-                (text, i) =>
-                  !popped.includes(i) && (
-                    <button
-                      key={i}
-                      className={`balloon balloon-${i}`}
-                      aria-label={`Pop balloon ${i + 1}`}
-                      onClick={() => {
-                        setPopped((p) => [...p, i]);
-                        setNote({
-                          title: text,
-                          text: "A little birthday reminder: aap meri favourite person ho. ♡",
-                        });
-                        celebrate();
-                      }}
-                    >
-                      <span>♡</span>
-                    </button>
-                  ),
+                (text, i) => (
+                  <button
+                    key={i}
+                    className={`balloon balloon-${i}`}
+                    aria-label={`Open birthday surprise ${i + 1}`}
+                    onClick={() => {
+                      setNote({
+                        title: text,
+                        text: "A little birthday reminder: aap meri favourite person ho. ♡",
+                      });
+                      celebrate();
+                    }}
+                  >
+                    <span>♡</span>
+                  </button>
+                ),
               )}
               <span className="balloon-hint handwritten">
                 psst… tap a balloon
@@ -373,10 +411,23 @@ export default function App() {
             </div>
           </section>
           <div className="ticker" aria-hidden="true">
-            <span>
-              birthday hugs ✳ madam ji ke nakhre ♡ one more ice cream ✳ a little
-              extra pyaar ♡ happy sukku day ✳
-            </span>
+            <div className="ticker-track">
+              {[0, 1].map((copy) => (
+                <div className="ticker-group" key={copy}>
+                  {[
+                    "birthday hugs",
+                    "madam ji ke nakhre",
+                    "one more ice cream",
+                    "a little extra pyaar",
+                    "happy sukku day",
+                  ].map((text, i) => (
+                    <span key={text}>
+                      {text} <i>{i % 2 ? "♡" : "✳"}</i>
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
           <section className="scrapbook section reveal" id="memories">
             <div className="section-heading">
