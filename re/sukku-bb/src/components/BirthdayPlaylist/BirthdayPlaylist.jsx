@@ -1,3 +1,4 @@
+import SukkuSticker from "../SukkuSticker";
 import { useEffect, useImperativeHandle, useRef, useState } from "react";
 import {
   Music2,
@@ -166,6 +167,7 @@ export default function BirthdayPlaylist({ playerRef }) {
           </button>
           <p className="eyebrow">Birthday girl gets the aux</p>
           <h2 id="playlist-title">Sukku's birthday radio.</h2>
+          <SukkuSticker mood="smile" className="playlist-sticker" />
           <div
             className={`playlist-record ${playing ? "record-playing" : ""}`}
             aria-hidden="true"

@@ -3186,3 +3186,102 @@ h3 {
     animation: none !important;
   }
 }
+
+/* Individual frames from Sukku's supplied sticker sheet. */
+.sukku-sticker {
+  display: inline-block;
+  width: 65px;
+  height: 100px;
+  overflow: hidden;
+  vertical-align: middle;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.hero-note {
+  position: relative;
+  padding-right: 70px;
+  width: fit-content;
+  min-height: 52px;
+}
+.hero-sticker {
+  position: absolute;
+  right: 0;
+  bottom: -9px;
+  width: 47px;
+  height: 77px;
+  rotate: 8deg;
+}
+.world-object .object-icon {
+  position: relative;
+  font-size: 0;
+}
+.world-object .object-icon > .sukku-sticker {
+  width: 70px;
+  height: 108px;
+  transition: transform 0.35s;
+  filter: drop-shadow(1px 5px 3px #492c2e0c);
+}
+.world-object:hover .sukku-sticker {
+  transform: translateY(-5px) rotate(-5deg);
+}
+.object-icon .sticker-memory-symbol {
+  position: absolute;
+  right: -18px;
+  bottom: 4px;
+  font-size: 25px;
+  line-height: 1;
+  rotate: 12deg;
+}
+.fortune-fold > .sukku-sticker {
+  width: 46px;
+  height: 75px;
+}
+.fortune-open .fortune-fold > .sukku-sticker {
+  width: 38px;
+  height: 60px;
+}
+.playlist-sticker {
+  position: absolute;
+  right: 25px;
+  top: 103px;
+  width: 45px;
+  height: 73px;
+  rotate: 10deg;
+}
+.playlist-panel {
+  position: relative;
+}
+.world-object .object-icon {
+  filter: none;
+}
+.world-map {
+  height: 650px;
+}
+@media (max-width: 600px) {
+  .world-map {
+    height: 640px;
+  }
+  .world-object .object-icon > .sukku-sticker {
+    width: 55px;
+    height: 88px;
+  }
+  .object-icon .sticker-memory-symbol {
+    right: -12px;
+    font-size: 20px;
+  }
+  .hero-sticker {
+    width: 38px;
+    height: 65px;
+    bottom: -3px;
+  }
+  .hero-note {
+    padding-right: 49px;
+    min-height: 47px;
+  }
+  .playlist-sticker {
+    width: 37px;
+    height: 61px;
+    right: 18px;
+    top: 102px;
+  }
+}

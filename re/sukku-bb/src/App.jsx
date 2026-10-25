@@ -11,6 +11,7 @@ import {
   Cake,
 } from "lucide-react";
 import { memories } from "./data/memories";
+import SukkuSticker from "./components/SukkuSticker";
 import BirthdayPlaylist from "./components/BirthdayPlaylist/BirthdayPlaylist";
 
 // Memories grounded in the supplied letters; no invented exact day for the summer scenes.
@@ -381,7 +382,8 @@ export default function App() {
                 Your first little surprise <ArrowDown size={17} />
               </a>
               <span className="handwritten hero-note">
-                yes, all of this is for you ♡
+                yes, all of this is for you ♡{" "}
+                <SukkuSticker mood="giggle" className="hero-sticker" />
               </span>
             </div>
             <div className="hero-art">
@@ -631,7 +633,19 @@ export default function App() {
                   aria-label={`Open memory: ${moment.label}`}
                 >
                   <span className="object-icon" aria-hidden="true">
-                    {moment.icon}
+                    <SukkuSticker
+                      mood={
+                        [
+                          "surprise",
+                          "wow",
+                          "peaceful",
+                          "sleepy",
+                          "shy",
+                          "wink",
+                        ][i]
+                      }
+                    />
+                    <span className="sticker-memory-symbol">{moment.icon}</span>
                   </span>
                   <span>{moment.label}</span>
                   <i aria-hidden="true">↗</i>
@@ -775,7 +789,7 @@ export default function App() {
               }}
             >
               <span className="fortune-fold" aria-hidden="true">
-                ✧
+                <SukkuSticker mood="pout" />
               </span>
               <span className="fortune-paper" aria-live="polite">
                 {fortune < 0
