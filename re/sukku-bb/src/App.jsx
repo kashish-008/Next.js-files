@@ -214,6 +214,7 @@ export default function App() {
   const [opened, setOpened] = useState(false);
   const [unwrapping, setUnwrapping] = useState(false);
   const openingTimer = useRef(null);
+  const birthdayPlayer = useRef(null);
   useEffect(() => () => clearTimeout(openingTimer.current), []);
   const [burst, setBurst] = useState(0);
   const [slide, setSlide] = useState(0);
@@ -315,6 +316,7 @@ export default function App() {
               const reduced = window.matchMedia(
                 "(prefers-reduced-motion: reduce)",
               ).matches;
+              birthdayPlayer.current?.startAfterOpening(reduced ? 0 : 2200);
               openingTimer.current = setTimeout(
                 () => {
                   setOpened(true);
@@ -1071,7 +1073,7 @@ export default function App() {
           </p>
           <a href="#home">Back to the birthday girl ↑</a>
         </footer>
-        <BirthdayPlaylist />
+        <BirthdayPlaylist playerRef={birthdayPlayer} />
       </div>
       {note && (
         <Modal
