@@ -33,7 +33,7 @@ const moments = [
   },
   {
     icon: "🪔",
-    label: "Pooja ke baad",
+    label: "Pooja ke time",
     title: "Matha tekte waqt, aapka haath",
     date: "23–29 October 2025",
     scene: "prayer",
