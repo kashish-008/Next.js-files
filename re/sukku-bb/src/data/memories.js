@@ -23,7 +23,6 @@ import photo22 from "../assets/photos/personal/photo-22.webp";
 import photo23 from "../assets/photos/personal/photo-23.webp";
 import photo24 from "../assets/photos/personal/photo-24.webp";
 import photo25 from "../assets/photos/personal/photo-25.webp";
-import together from "../assets/photos/personal/together.webp";
 
 export const memories = [
   {
@@ -33,7 +32,7 @@ export const memories = [
     crop: [0, 0, 900, 635],
     date: "Little pieces of us",
     title: "My favourite company",
-    text: "Aap aur main. Meri favourite photo, meri favourite company.",
+    text: "Aap aur main. Iss frame mein meri favourite company hai.",
   },
   {
     id: 2,
@@ -41,8 +40,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "That smile, always",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Phoolon wali smile",
+    text: "Phool hawa mein, aur aapke chehre par woh khushi.",
   },
   {
     id: 3,
@@ -50,8 +49,8 @@ export const memories = [
     size: [675, 1200],
     crop: [0, 0, 675, 1200],
     date: "Little pieces of us",
-    title: "A day worth keeping",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "The pink dupatta",
+    text: "Pink dupatte mein ek pal, jo photo mein ruk gaya.",
   },
   {
     id: 4,
@@ -59,8 +58,8 @@ export const memories = [
     size: [900, 675],
     crop: [0, 0, 900, 675],
     date: "Little pieces of us",
-    title: "A little moment",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Bench par ek candid",
+    text: "Green bench wala yeh candid sambhal ke rakhna tha.",
   },
   {
     id: 5,
@@ -68,8 +67,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "One more smile",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "A quiet little portrait",
+    text: "Ek seedhi si nazar, bina kisi bade pose ke.",
   },
   {
     id: 6,
@@ -77,8 +76,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "Our photo collection",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "An evening in brown",
+    text: "Shaam ke lights mein aapka apna sa andaaz.",
   },
   {
     id: 7,
@@ -86,8 +85,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "A day worth keeping",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Between the red steps",
+    text: "Seedhiyon par baithi madam ji. Bas ek aur photo.",
   },
   {
     id: 8,
@@ -95,8 +94,8 @@ export const memories = [
     size: [900, 675],
     crop: [0, 0, 900, 675],
     date: "Little pieces of us",
-    title: "A little photo from the early years",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "A childhood keepsake",
+    text: "Bachpan ki photo bhi iss birthday album ka hissa hai.",
   },
   {
     id: 9,
@@ -104,8 +103,8 @@ export const memories = [
     size: [800, 1200],
     crop: [0, 0, 800, 1200],
     date: "Little pieces of us",
-    title: "One more smile",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "A smile by the water",
+    text: "Camera ke saamne aane se pehle wali chhoti si hansi.",
   },
   {
     id: 10,
@@ -113,8 +112,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "Our photo collection",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "When the sun went down",
+    text: "Suraj dhal raha tha; yeh frame reh gaya.",
   },
   {
     id: 11,
@@ -122,8 +121,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "A day worth keeping",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Lights on the water",
+    text: "Paani mein lights, aur aap saamne.",
   },
   {
     id: 12,
@@ -131,8 +130,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "A little moment",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "The night portrait",
+    text: "Raat ki hawa mein kheechi ek alag si tasveer.",
   },
   {
     id: 13,
@@ -140,8 +139,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "One more smile",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Under the white arches",
+    text: "Safed pillars ke beech black outfit ka yeh frame.",
   },
   {
     id: 14,
@@ -149,8 +148,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "Our photo collection",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Hills in the background",
+    text: "Pahaadon aur paani ke saath ek tasveer.",
   },
   {
     id: 15,
@@ -158,8 +157,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "A day worth keeping",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "A festive little frame",
+    text: "Birthday collection mein party wali photo bhi zaroori thi.",
   },
   {
     id: 16,
@@ -167,8 +166,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "A little moment",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "The heart sweater",
+    text: "Heart sweater ki ek pyaari si portrait.",
   },
   {
     id: 17,
@@ -176,8 +175,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "One more smile",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "One more angle",
+    text: "Isi outfit ka ek aur angle, ek alag expression.",
   },
   {
     id: 18,
@@ -185,8 +184,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "Our photo collection",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Yellow threads, green trees",
+    text: "Yellow embroidery aur pedon wali background.",
   },
   {
     id: 19,
@@ -194,8 +193,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "Under the lights",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Under the chandeliers",
+    text: "Chandeliers ke neeche waali yeh photo.",
   },
   {
     id: 20,
@@ -203,8 +202,8 @@ export const memories = [
     size: [554, 1200],
     crop: [0, 0, 554, 1200],
     date: "Little pieces of us",
-    title: "A little moment",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "A candid from the gallery",
+    text: "Phone ki gallery se hamari ek candid jhalak.",
   },
   {
     id: 21,
@@ -212,8 +211,8 @@ export const memories = [
     size: [900, 1200],
     crop: [0, 0, 900, 1200],
     date: "Little pieces of us",
-    title: "One more smile",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "A bridge and a blue sky",
+    text: "Blue sky aur bridge ki lines ke beech aap.",
   },
   {
     id: 22,
@@ -221,8 +220,8 @@ export const memories = [
     size: [675, 1200],
     crop: [0, 0, 675, 1200],
     date: "Little pieces of us",
-    title: "Our photo collection",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "The black-and-white sweater",
+    text: "Black-white sweater mein ek purani favourite.",
   },
   {
     id: 23,
@@ -231,7 +230,7 @@ export const memories = [
     crop: [40, 210, 506, 780],
     date: "Little pieces of us",
     title: "Aankhon wali baat",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    text: "Do aankhon ki tasveerein, ek hi frame mein.",
   },
   {
     id: 24,
@@ -239,8 +238,8 @@ export const memories = [
     size: [675, 1200],
     crop: [0, 0, 675, 1200],
     date: "Little pieces of us",
-    title: "The little things",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
+    title: "Haath mein haath",
+    text: "Haathon ki iss photo ko caption ki zaroorat bhi hai?",
   },
   {
     id: 25,
@@ -248,25 +247,7 @@ export const memories = [
     size: [675, 1200],
     crop: [0, 0, 675, 1200],
     date: "Little pieces of us",
-    title: "One more smile",
-    text: "Ek photo aur itni saari feelings. Aisi aur bahut si yaadein banani hain.",
-  },
-  {
-    id: 26,
-    image: together,
-    size: [2048, 2003],
-    crop: [205, 1172, 702, 777],
-    date: "Our illustrated little world",
-    title: "Us, illustrated",
-    text: "Hamari cartoon version bhi. Same favourite company.",
-  },
-  {
-    id: 27,
-    image: together,
-    size: [2048, 2003],
-    crop: [1120, 1172, 702, 777],
-    date: "Our illustrated little world",
-    title: "Us, illustrated",
-    text: "Hamari cartoon version bhi. Same favourite company.",
+    title: "A little side profile",
+    text: "Profile wali photo: kuch kehne se pehle ka ek pal.",
   },
 ];

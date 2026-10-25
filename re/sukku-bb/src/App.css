@@ -1713,3 +1713,635 @@ h3 {
     height: 315px;
   }
 }
+/* The opening is a two-panel theatre reveal, with the page already beneath it. */
+.gift-opening {
+  background: transparent;
+  isolation: isolate;
+  transition: none;
+  clip-path: none;
+}
+.gift-opening > .stage-curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.2%;
+  z-index: -1;
+  animation: none;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    #7e2032 0%,
+    #ab3b4d 9%,
+    #8e2639 17%,
+    #6e192a 24%
+  );
+  box-shadow: inset -15px 0 35px #40132266;
+  transition: transform 1.45s 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.gift-opening > .curtain-left {
+  left: 0;
+  transform-origin: top left;
+}
+.gift-opening > .curtain-right {
+  right: 0;
+  transform-origin: top right;
+  background: repeating-linear-gradient(
+    90deg,
+    #6e192a 0%,
+    #8e2639 8%,
+    #ab3b4d 17%,
+    #7e2032 24%
+  );
+  box-shadow: inset 15px 0 35px #40132266;
+}
+.gift-opening h1,
+.gift-opening em,
+.gift-opening > .eyebrow,
+.gift-opening > p:not(.eyebrow),
+.gift-opening > .handwritten,
+.gift-opening > small {
+  color: #fff0d6;
+}
+.gift-opening > .eyebrow {
+  color: #e6bd7c;
+}
+.gift-opening > .gift {
+  border: 1px solid #f1c98d88;
+  box-shadow: 0 20px 40px #2f091d55;
+}
+.gift-opening.unwrapping {
+  opacity: 1;
+  clip-path: none;
+  transition: none;
+}
+.gift-opening.unwrapping > .curtain-left {
+  transform: translateX(-105%) rotate(-3deg);
+}
+.gift-opening.unwrapping > .curtain-right {
+  transform: translateX(105%) rotate(3deg);
+}
+.gift-opening.unwrapping > :not(.stage-curtain) {
+  animation: opening-content-exit 0.55s forwards !important;
+  pointer-events: none;
+}
+.is-open .hero-copy > * {
+  animation-delay: 1.25s;
+}
+.is-open .hero-copy h1 {
+  animation-delay: 1.4s;
+}
+.is-open .hero-description {
+  animation-delay: 1.55s;
+}
+.is-open .hero-copy .primary {
+  animation-delay: 1.7s;
+}
+.is-open .hero-art {
+  animation-delay: 1.45s;
+}
+.birthday-app.is-open .bunting i {
+  transform-origin: top;
+  animation: bunting-sway 4s ease-in-out infinite alternate;
+}
+.bunting i:nth-child(2n) {
+  animation-delay: -2s !important;
+}
+.real-moments {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 1120px;
+  margin: auto;
+}
+.moment-ticket {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-height: 275px;
+  padding: 28px 25px;
+  background: #fcf5e9;
+  border: 1px solid #a8314228;
+  box-shadow: 3px 7px 0 #dbcbb65c;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  overflow: hidden;
+}
+.moment-ticket:nth-child(3n + 1) {
+  rotate: -2deg;
+}
+.moment-ticket:nth-child(3n) {
+  rotate: 2deg;
+}
+.moment-ticket:hover {
+  transform: translateY(-7px);
+  box-shadow: 5px 14px 0 #dbcbb65c;
+}
+.ticket-number {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  position: absolute;
+  right: 20px;
+  top: 22px;
+}
+.ticket-illustration {
+  font-size: 48px;
+  height: 83px;
+  display: block;
+}
+.ticket-date {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.moment-ticket strong {
+  font-family: "DM Serif Display", serif;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.ticket-invitation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  color: var(--red);
+  margin-top: auto;
+  padding-top: 25px;
+}
+.ticket-rain {
+  background: #e6edeb;
+}
+.ticket-prayer {
+  background: #f4e4c9;
+}
+.ticket-night {
+  background: #ede4ed;
+}
+.ticket-heart {
+  background: #f4dedc;
+}
+.scene-rain {
+  background: #eef2eb;
+}
+.memory-rain {
+  position: absolute;
+  inset: 0;
+  height: 110px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.35;
+}
+.memory-rain i {
+  position: absolute;
+  left: var(--drop);
+  height: 22px;
+  width: 1px;
+  background: #577981;
+  top: -24px;
+  animation: memory-drizzle 1.3s var(--drop-delay) linear infinite;
+}
+.memory-scene .eyebrow {
+  position: relative;
+}
+.scene-night {
+  background: #eee7ed;
+}
+.scene-prayer {
+  background: #fff1d5;
+}
+.scene-fair {
+  background: #faf0dc;
+}
+.scene-heart {
+  background: #fff0eb;
+}
+.scene-farewell {
+  background: #f3eade;
+}
+.postmark {
+  font-size: 8px;
+  line-height: 1.6;
+  max-width: 105px;
+}
+.wish-section {
+  position: relative;
+  background: #302934;
+  color: #fff1d8;
+  isolation: isolate;
+  padding-bottom: 90px;
+  overflow: hidden;
+  transition: background 1s;
+}
+.wish-section:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 50% 45%, #8e5e4b66, transparent 65%);
+}
+.wish-section em {
+  color: #edb88b;
+}
+.wish-section > .eyebrow {
+  color: #d2af8d;
+}
+.wish-section > p:not(.eyebrow) {
+  color: #dac5ba;
+}
+.wish-constellation {
+  position: absolute;
+  inset: 20px 5%;
+  z-index: -1;
+  pointer-events: none;
+}
+.wish-constellation span {
+  position: absolute;
+  left: var(--star-x);
+  top: var(--star-y);
+  color: #e8bd7e;
+  font-size: 22px;
+  opacity: 0.55;
+  animation: wish-twinkle 3s var(--star-delay) ease-in-out infinite;
+}
+.birthday-table {
+  width: min(560px, 100%);
+  height: 410px;
+  position: relative;
+  margin: 30px auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.birthday-table:before {
+  content: "";
+  position: absolute;
+  inset: 5px 55px 25px;
+  border: 1px solid #edc49a55;
+  border-radius: 50% 50% 10px 10px;
+  box-shadow: inset 0 0 50px #efb57609;
+}
+.birthday-table:after {
+  content: "";
+  position: absolute;
+  bottom: 36px;
+  left: 8%;
+  right: 8%;
+  height: 55px;
+  background: #b77a6440;
+  border-radius: 50%;
+  z-index: -1;
+}
+.table-note {
+  position: absolute;
+  top: 13px;
+  font-size: 20px;
+  color: #e1b58c;
+  rotate: -5deg;
+}
+.birthday-table .cake {
+  height: 305px;
+  width: 310px;
+  margin: 0;
+  padding-top: 0;
+  justify-content: flex-start;
+  z-index: 2;
+  transform: translateY(18px);
+  filter: drop-shadow(0 0 30px #f1ae5433);
+}
+.birthday-table .cake:hover {
+  transform: translateY(13px) rotate(-2deg);
+}
+.birthday-table .candles {
+  height: 62px;
+  gap: 35px;
+}
+.birthday-table .candle {
+  height: 46px;
+  background: repeating-linear-gradient(45deg, #a54b5d 0 6px, #fff4e8 6px 12px);
+}
+.birthday-table .flame {
+  background: #f6bd51;
+  box-shadow:
+    0 0 16px #f4af3b,
+    0 0 40px #f4af3b66;
+  transition: opacity 0.5s;
+}
+.cake-topper {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 28px;
+  color: #a83142;
+  top: 112px;
+  z-index: 5;
+  rotate: -4deg;
+  pointer-events: none;
+}
+.birthday-table .icing {
+  width: 190px;
+  height: 37px;
+  border-radius: 50% 50% 10px 10px;
+  display: flex;
+  justify-content: space-around;
+  padding: 19px 12px 0;
+  position: relative;
+  background: #fff0d7;
+  box-shadow: none;
+}
+.icing > i {
+  width: 14px;
+  height: 22px;
+  border-radius: 0 0 20px 20px;
+  background: #fff0d7;
+  z-index: 4;
+}
+.birthday-table .cake-layer {
+  position: relative;
+  width: 190px;
+  height: 83px;
+  background: #d9a4a0;
+  margin-top: -9px;
+  border-radius: 0 0 12px 12px;
+  padding: 27px 0 0;
+  color: #ac4f60;
+}
+.cake-layer > span {
+  font-size: 27px;
+}
+.cake-piping {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  border-bottom: 8px dotted #fff0d7;
+}
+.cake-bottom-tier {
+  position: relative;
+  width: 255px;
+  height: 82px;
+  background: #ac4c5e;
+  border-top: 17px solid #f5d8c4;
+  border-radius: 25px 25px 16px 16px;
+  margin-top: -2px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: inset 0 -10px #86344733;
+}
+.cake-bottom-tier > i {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: #f7cfaa;
+}
+.birthday-table .cake-plate {
+  width: 295px;
+  height: 18px;
+  background: #d4ad75;
+  margin-top: -3px;
+  z-index: 4;
+}
+.cake-pedestal {
+  position: absolute;
+  bottom: 58px;
+  width: 32px;
+  height: 48px;
+  background: #c09764;
+  z-index: 1;
+  border-radius: 0 0 15px 15px;
+}
+.cake-pedestal:after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: -29px;
+  width: 90px;
+  height: 13px;
+  border-radius: 50%;
+  background: #d4ad75;
+}
+.wish-orbit {
+  position: absolute;
+  border: 1px dashed #e5bc7a66;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  top: 100px;
+  left: 35px;
+  animation: star-drift 5s infinite ease-in-out;
+}
+.wish-orbit.orbit-b {
+  left: auto;
+  right: 30px;
+  top: 180px;
+  width: 40px;
+  height: 40px;
+  animation-delay: -2s;
+}
+.wish-section > .handwritten {
+  color: #e8bd92;
+}
+.wish-section .wish-message p {
+  color: #dcc9bb;
+}
+.wish-section .wish-message h3 {
+  color: #fff0d7;
+}
+.wish-section .wish-message .primary {
+  background: #e5b587;
+  color: #342936;
+}
+.wish-ribbon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: "Caveat";
+  font-size: 25px;
+  color: #f4d0a1;
+  animation: wish-arrive 0.8s both;
+}
+.wish-made {
+  background: #3c3043;
+}
+.wish-made .birthday-table .cake {
+  filter: drop-shadow(0 0 20px #e8b59422);
+}
+.blown .candle:after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 4px;
+  width: 10px;
+  height: 25px;
+  border-left: 2px solid #fff2d6aa;
+  border-radius: 50%;
+  animation: candle-smoke 1.2s forwards;
+}
+.wish-message {
+  margin-top: 25px;
+}
+.scene-heart:before {
+  content: "♡";
+  font-family: Georgia;
+  position: absolute;
+  right: 25px;
+  top: 50px;
+  font-size: 90px;
+  color: #a8314212;
+  pointer-events: none;
+}
+@keyframes opening-content-exit {
+  to {
+    opacity: 0;
+    translate: 0 -22px;
+    filter: blur(3px);
+  }
+}
+@keyframes bunting-sway {
+  to {
+    rotate: 8deg;
+  }
+}
+@keyframes memory-drizzle {
+  to {
+    translate: -20px 150px;
+    opacity: 0;
+  }
+}
+@keyframes wish-twinkle {
+  50% {
+    opacity: 1;
+    scale: 1.3;
+  }
+}
+@keyframes wish-arrive {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes candle-smoke {
+  to {
+    translate: 12px -35px;
+    opacity: 0;
+    scale: 1.7;
+  }
+}
+@media (max-width: 900px) {
+  .real-moments {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+@media (max-width: 600px) {
+  .real-moments {
+    gap: 15px;
+  }
+  .moment-ticket {
+    padding: 23px 15px;
+    min-height: 260px;
+  }
+  .moment-ticket strong {
+    font-size: 24px;
+  }
+  .ticket-illustration {
+    font-size: 39px;
+    height: 70px;
+  }
+  .ticket-date {
+    font-size: 8px;
+    line-height: 1.7;
+  }
+  .ticket-number {
+    right: 12px;
+    top: 15px;
+    font-size: 8px;
+  }
+  .ticket-invitation {
+    font-size: 20px;
+    gap: 8px;
+    line-height: 1.2;
+  }
+  .birthday-table {
+    height: 390px;
+    margin-top: 25px;
+  }
+  .birthday-table:before {
+    inset: 5px 12px 25px;
+  }
+  .table-note {
+    font-size: 19px;
+    top: 12px;
+  }
+  .birthday-table .cake {
+    scale: 0.9;
+  }
+  .cake-pedestal {
+    bottom: 65px;
+  }
+  .wish-orbit {
+    left: 3px;
+    top: 110px;
+  }
+  .wish-orbit.orbit-b {
+    right: 0;
+    top: 190px;
+  }
+  .wish-section {
+    padding-inline: 6%;
+  }
+  .wish-section h2 {
+    font-size: 49px;
+  }
+  .wish-ribbon {
+    font-size: 23px;
+  }
+  .postmark {
+    font-size: 8px;
+  }
+}
+@media (max-width: 360px) {
+  .real-moments {
+    grid-template-columns: 1fr;
+  }
+  .moment-ticket {
+    min-height: 230px;
+  }
+  .birthday-table .cake {
+    scale: 0.8;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gift-opening.unwrapping > :not(.stage-curtain) {
+    animation: none !important;
+  }
+  .gift-opening > .stage-curtain {
+    transition: none;
+  }
+  .wish-constellation span,
+  .memory-rain i,
+  .bunting i,
+  .wish-orbit,
+  .blown .candle:after,
+  .wish-ribbon {
+    animation: none !important;
+  }
+  .memory-rain {
+    display: none;
+  }
+  .is-open .hero-copy > *,
+  .is-open .hero-art {
+    animation: none !important;
+  }
+}

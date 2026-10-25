@@ -3,66 +3,81 @@ import {
   ArrowDown,
   ArrowLeft,
   ArrowRight,
-  Heart,
   Music2,
   VolumeX,
   X,
 } from "lucide-react";
 import { memories } from "./data/memories";
 
-// Sample content only. Personalize here without uploading private letters.
+// Memories grounded in the supplied letters; no invented exact day for the summer scenes.
 const moments = [
-  [
-    "☕",
-    "A little chai",
-    "Our café memory",
-    "Add a favourite café memory here.",
-  ],
-  [
-    "🍟",
-    "Favourite snacks",
-    "Something delicious",
-    "Add your own food story or inside joke here.",
-  ],
-  [
-    "🎬",
-    "Movie nights",
-    "One more episode?",
-    "Add a movie, show, or funny review here.",
-  ],
-  [
-    "☔",
-    "Rainy days",
-    "A little rain",
-    "Add your favourite rainy-day memory here.",
-  ],
-  [
-    "🍦",
-    "Something sweet",
-    "A little treat",
-    "Add her favourite flavour and a happy memory here.",
-  ],
-  [
-    "🏡",
-    "Our kind of happy",
-    "The little things",
-    "Add an ordinary moment that became special here.",
-  ],
+  {
+    icon: "☔",
+    label: "Sector 22 ki baarish",
+    title: "Woh raat, jab hum bheeg kar ghar aaye",
+    date: "June–July 2025",
+    scene: "rain",
+    text: "Sector 22 ki market gaye the hum. Phir achanak itni tez baarish shuru ho gayi. Raat ko hum dono poore bheege hue ghar pahunche. Aaj bhi us raat ko sochta hoon toh woh saath hone wali feeling yaad aati hai. Kya raat thi woh, Sukku.",
+  },
+  {
+    icon: "🎡",
+    label: "Sector 34 ka mela",
+    title: "Horror house mein aapka haath",
+    date: "June–July 2025",
+    scene: "fair",
+    text: "Sector 34 ke mele mein jab hum horror house gaye, aap itna darr gayi thi ki mujhe kas ke pakad liya. Mere liye us jagah ka sabse yaadgaar hissa koi scary cheez nahi thi. Bas aapka mere itne paas hona tha.",
+  },
+  {
+    icon: "🪔",
+    label: "Pooja ke baad",
+    title: "Matha tekte waqt, aapka haath",
+    date: "23–29 October 2025",
+    scene: "prayer",
+    text: "Subah naha kar saath pooja karna. Aur aakhir mein matha tekte waqt aapka haath pakadna. Aapke jaane ke baad main floor mat ka right corner pakad kar wahi pal imagine karta tha. Sukku, woh chhota sa moment bahut miss hota hai.",
+  },
+  {
+    icon: "🌙",
+    label: "Ek din aur",
+    title: "Jab ek aur din mil gaya",
+    date: "28 October 2025",
+    scene: "night",
+    text: "Hum almost ready ho gaye the aur aapki aankhon mein paani aa gaya. Aapne kaha, bas ek aur din ruk jaate hain. Jab mumma ne allow kiya, hum dono kitne khush hue. Uss raat baatein karte-karte teen baj gaye. Paanch baje uthne ka plan toh bas plan hi reh gaya.",
+  },
+  {
+    icon: "💌",
+    label: "Woh goodbye",
+    title: "Bus chalne se pehle",
+    date: "29 October 2025",
+    scene: "farewell",
+    text: "Thand thi aur hoodie pehenne ko lekar hamari chhoti si nok-jhok bhi hui. Bus stand par aapko bus mil gayi. Jaane se pehle aapke forehead par kiss ki. Saamne smile rakhi, par bus chalte hi aankhen bhar aayi. Har baar bas thoda aur waqt chahiye hota hai.",
+  },
+  {
+    icon: "♡",
+    label: "Pehli kiss",
+    title: "Jab duniya mein sirf hum the",
+    date: "14–17 March 2025",
+    scene: "heart",
+    text: "Main nervous tha, bas aapko dekhta reh gaya. Kisne pehla move kiya, kaise hua, uss waqt kuch samajh hi nahi aaya. Sab apne aap hua. Bas itna yaad hai ki us pal duniya mein sirf hum dono the.",
+  },
 ];
 const letters = [
   {
     title: "Meri birthday girl",
     label: "Aaj, sirf aapke liye",
+    stampDate: "27 / OCT",
     text: "Meri Pyari Sukku,\n\nAapke birthday ki tayari karte waqt mere mann mein hamesha ek hi baat hoti hai: aapko special kaise feel karwaun? Pichli baar colours, pages, glue aur photos the. Is baar yeh chhoti si website hai.\n\nMain kabhi-kabhi words mein apna pyaar theek se nahi bata pata. Toh jo bol nahi paata, woh banane ki koshish karta hoon. Har chhoti cheez mein bas yahi hai: aapki smile dekhni hai.\n\nHappy birthday, meri jaan. Aapki khushiyan, aapke sapne, aur aapka woh pyaara sa bachpana hamesha aise hi rahe.",
   },
   {
     title: "Woh sab jo yaad reh gaya",
     label: "Hamari chhoti-chhoti baatein",
+    stampDate: "FEB – JUL",
+    stampYear: "2025",
     text: "Meri Pyari Sukku,\n\nMujhe lagta tha jab milenge toh bahut kuch bolunga. Phir aap saamne aayi aur main chup ho gaya. Aapka woh message, café ki paas wali chair, aur mere thande haathon ko apne haathon mein pakadna… abhi tak yaad hai.\n\nPhir kitne chapters aaye. Shinchan, fries, mehndi, Harry Potter gift. Shaam ko milna, golgappe, ice cream. Baarish mein bheeg kar aana aur Squid Game dekhte-dekhte subah kar dena.\n\nKabhi socha tha calls par ki ek din yeh sab karenge. Ab dekho, kitni saari yaadein ho gayi hain. Aur main inmein se ek bhi khona nahi chahta.",
   },
   {
     title: "Abhi kitaab baaki hai",
     label: "Hamare aane wale kal ke liye",
+    stampDate: "27 / OCT",
     text: "Meri Pyari Sukku,\n\nMujhe aapse materialistic kuch nahi chahiye. Aapka trust, aapka saath, aur ek simple si life jahan hum apne sapne milkar poore karein.\n\nSaath khana banana, shaam ko kya khayenge sochna, aur bina jaane ki tension ke baith kar baatein karna. Chhoti cheezein hain, par mere liye bahut badi khushi hain.\n\nMeri wish hai ki hum ek dusre ko samajhte rahein, support karein, aur har naye phase mein saath grow karein. Ek din kisi pahadi jagah par coffee peete hue in letters ko phir padhein.\n\nApni story ke bahut saare khoobsurat pages likh chuke hain. Abhi poori kitaab likhni baaki hai.",
   },
 ];
@@ -105,7 +120,7 @@ function Confetti({ burst }) {
     </div>
   );
 }
-function Modal({ title, children, onClose }) {
+function Modal({ title, children, onClose, scene, date }) {
   const ref = useRef(null);
   useEffect(() => {
     const previous = document.activeElement;
@@ -122,7 +137,8 @@ function Modal({ title, children, onClose }) {
   return (
     <dialog
       ref={ref}
-      className="note-dialog"
+      aria-labelledby="note-title"
+      className={`note-dialog ${scene ? `memory-scene scene-${scene}` : ""}`}
       onCancel={onClose}
       onClick={(e) => {
         if (e.target === ref.current) onClose();
@@ -131,8 +147,21 @@ function Modal({ title, children, onClose }) {
       <button className="close" onClick={onClose} aria-label="Close note">
         <X size={20} />
       </button>
-      <span className="eyebrow">A little piece of us</span>
-      <h2>{title}</h2>
+      {scene === "rain" && (
+        <div className="memory-rain" aria-hidden="true">
+          {Array.from({ length: 18 }, (_, i) => (
+            <i
+              key={i}
+              style={{
+                "--drop": `${i * 5.8}%`,
+                "--drop-delay": `${i * 0.13}s`,
+              }}
+            />
+          ))}
+        </div>
+      )}
+      <span className="eyebrow">{date || "A little piece of us"}</span>
+      <h2 id="note-title">{title}</h2>
       {children}
       <div className="signature">
         Apka pyaar,
@@ -164,7 +193,7 @@ export default function App() {
     };
   }, [opened]);
   useEffect(() => {
-    if (!opened) return;
+    if (!opened && !unwrapping) return;
     const observer = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
@@ -177,7 +206,7 @@ export default function App() {
     );
     document.querySelectorAll(".reveal").forEach((e) => observer.observe(e));
     return () => observer.disconnect();
-  }, [opened]);
+  }, [opened, unwrapping]);
   async function toggleMusic() {
     if (playing) {
       audio.current.pause();
@@ -205,6 +234,8 @@ export default function App() {
           className={`gift-opening ${unwrapping ? "unwrapping" : ""}`}
           aria-busy={unwrapping}
         >
+          <div className="stage-curtain curtain-left" aria-hidden="true" />
+          <div className="stage-curtain curtain-right" aria-hidden="true" />
           <span className="opening-star star-a">✳</span>
           <span className="opening-star star-b">✧</span>
           <p className="eyebrow">27 October · A very special delivery</p>
@@ -227,7 +258,7 @@ export default function App() {
                   setOpened(true);
                   celebrate();
                 },
-                reduced ? 0 : 1450,
+                reduced ? 0 : 2200,
               );
             }}
             aria-label="Unwrap your birthday surprise"
@@ -246,7 +277,7 @@ export default function App() {
         </div>
       )}
       <div
-        className={`birthday-app ${opened ? "is-open" : ""}`}
+        className={`birthday-app ${opened || unwrapping ? "is-open" : ""}`}
         inert={!opened}
       >
         <header>
@@ -414,51 +445,45 @@ export default function App() {
           <section className="world section reveal" id="world">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">02 / The little things</p>
+                <p className="eyebrow">02 / Yaad hai aapko?</p>
                 <h2>
                   Special moments.
                   <br />
-                  <em>Our little world.</em>
+                  <em>Sirf hamare.</em>
                 </h2>
               </div>
               <p>
-                Not every memory needs a date.
+                Kuch pal bas hum dono ke hain.
                 <br />
-                Tap a little thing. Find a little feeling.
+                Ek yaad kholo. Phir se uss pal mein chalo.
               </p>
             </div>
-            <div className="world-map">
-              <div className="orbit orbit-one" />
-              <div className="orbit orbit-two" />
-              <div className="world-center">
-                <span>you + me</span>
-                <strong>
-                  our little
-                  <br />
-                  world
-                </strong>
-                <Heart size={25} />
-              </div>
-              {moments.map(([icon, label, title, text], i) => (
+            <div className="real-moments">
+              {moments.map((moment, i) => (
                 <button
-                  key={title}
-                  className={`world-object object-${i}`}
-                  onClick={() => setNote({ title, text })}
+                  key={moment.scene}
+                  className={`moment-ticket ticket-${moment.scene}`}
+                  onClick={() => setNote(moment)}
                 >
-                  <span className="object-icon">{icon}</span>
-                  <span>{label}</span>
-                  <i>↗</i>
+                  <span className="ticket-number">0{i + 1}</span>
+                  <span className="ticket-illustration" aria-hidden="true">
+                    {moment.icon}
+                  </span>
+                  <span className="ticket-date">{moment.date}</span>
+                  <strong>{moment.label}</strong>
+                  <span className="ticket-invitation">
+                    {i === 0 ? "Woh bheegi hui raat…" : "Yeh pal yaad hai?"}{" "}
+                    <ArrowRight size={17} />
+                  </span>
                 </button>
               ))}
-              <span className="world-doodle doodle-one">✧</span>
-              <span className="world-doodle doodle-two">♡</span>
             </div>
           </section>
 
           <section className="story-chapters section reveal" id="story">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">The story behind this little world</p>
+                <p className="eyebrow">Hamari kahani ke milestones</p>
                 <h2>
                   Kitni door se,
                   <br />
@@ -476,43 +501,29 @@ export default function App() {
                   "01",
                   "Ek random chat",
                   "21 July 2021",
-                  "Ek live song ki chat se shuru hui baat Snapchat tak pahunch gayi. Tab kya pata tha ki screen ke us paar wali ladki ek din meri favourite person ban jayegi.",
-                  "“Aur batao…”",
+                  "YouTube par ek live song ki chat mein mile. Uske baad Snapchat par add kiya. Tab humein kya pata tha ki yeh hello kahaan tak le jaayegi.",
+                  "Ek naam, jo dheere-dheere sabse khaas ho gaya.",
                 ],
                 [
                   "02",
-                  "Phir se shuru hui baatein",
+                  "Wapas aayi woh baatein",
                   "29 October 2024",
-                  "Pehli call par nervousness thi. Phir baatein aisi chali ki raat ke ek baje se chaar-paanch baj gaye. Mere paas sawaal kam the, “aur batao” bahut zyada.",
-                  "Ek call. Aur phir roz ka intezaar.",
+                  "Kuch waqt ki doori ke baad phir baat shuru hui. Pehli call raat ek baje se chaar-paanch baje tak chali. Mere “aur batao” par aapki hansi ab bhi yaad hai.",
+                  "Conversation khatam hi nahi ho rahi thi.",
                 ],
                 [
                   "03",
-                  "Finally, aap saamne thi",
-                  "2 February 2025",
-                  "Subah chaar baje uthna, bus ka safar, aur phir Bathinda mein aapko pehli baar dekhna. Black-white top, flower earrings… kuch details dil bina koshish ke yaad rakh leta hai. Café mein saamne baitha toh aapne paas bula liya.",
-                  "Saamne wali chair nahi. Paas wali.",
+                  "Ek bus, do shehar",
+                  "3 March 2025",
+                  "Hoshiarpur se Ludhiana tak saath safar kiya. Uss din aapko ek chhota sa teddy diya tha. Chhota sa route tha, lekin mere liye ek naya chapter.",
+                  "Safar ka favourite hissa, paas wali seat.",
                 ],
                 [
                   "04",
-                  "Woh chaar din",
-                  "March 2025",
-                  "Shinchan, burger aur fries, mehndi, dance seekhna aur Harry Potter wala gift. Calls par jo simple si cheezein imagine ki thi, woh ek-ek karke real ho rahi thi.",
-                  "Ek din aur ruk jao na.",
-                ],
-                [
-                  "05",
-                  "200 km se 3 km",
-                  "June–July 2025",
-                  "Training ke dino mein shaam ka matlab tha aapse milna. Park, phase 5 ka dosa, 3B2 ke golgappe, Sukhna Lake ki photos aur woh pehli movie date. Movie kaisi bhi thi… company toh best thi.",
-                  "Bas aaj hi khayenge, kal nahi.",
-                ],
-                [
-                  "06",
-                  "Birthday ki secret tayari",
-                  "October 2025",
-                  "Stationery ki shopping, photos select karna aur raat ko thoda-thoda cards banana. Kisi ke aane par samaan bed ke neeche chhupa dena. Aapko smile karwana tha, toh thodi mehnat banti thi.",
-                  "Gift se zyada, uske peeche ka pyaar.",
+                  "Pehla poora saal",
+                  "2 February 2026",
+                  "Ek saal officially saath. College se office tak kitne phases badle. Hamari anniversary par peeche dekha toh laga, pehle sirf plans the, ab ek saal bhar ki kahani thi.",
+                  "Ek milestone, aur aage bahut saara safar.",
                 ],
               ].map(([number, title, date, text, aside]) => (
                 <article className="chapter reveal" key={number}>
@@ -530,7 +541,7 @@ export default function App() {
           <section className="keepsakes section reveal">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">Small things I kept</p>
+                <p className="eyebrow">Sambhal kar rakha hai</p>
                 <h2>
                   Cheezein chhoti thi.
                   <br />
@@ -543,31 +554,31 @@ export default function App() {
             </div>
             <div className="keepsake-layout">
               <div className="keepsake-ticket">
-                <span>ADMIT TWO</span>
+                <span>KEPT CLOSE</span>
                 <strong>
-                  Our first
+                  A rose.
                   <br />
-                  movie date
+                  Two photos.
                 </strong>
                 <small>
-                  Film: questionable
-                  <br />
-                  Company: favourite
+                  A little chocolate.
+                  <br />A lot to remember.
                 </small>
                 <span>KEEP THIS ONE FOREVER ♡</span>
               </div>
               <div className="keepsake-writing">
                 <p>
-                  Wallet mein rakhi photos. Harry Potter wala gift. Ek chhota sa
-                  teddy. Har cheez kisi moment ka shortcut hai.
+                  Pehli mulaqat ka rose, chocolate, aur aapki woh do photos jo
+                  mere wallet mein hain. Kuch cheezein bas rakh nahi di jaati,
+                  sambhal kar rakhi jaati hain.
                 </p>
                 <p>
-                  Aur kuch yaadein toh bina kisi souvenir ke reh gayi: baarish
-                  mein ghar aana, saath khana banana, aur ek episode ke chakkar
-                  mein subah ke paanch baj jaana.
+                  Aapne kiss karke jo tissue diya tha, woh bhi. Kisi aur ko
+                  shayad ek chhoti si cheez lage. Mere liye us din ka ek hissa
+                  hai.
                 </p>
                 <span className="handwritten">
-                  ordinary things. very extraordinary company.
+                  Inki jagah kabhi koi aur cheez nahi le sakti.
                 </span>
               </div>
             </div>
@@ -611,7 +622,13 @@ export default function App() {
                     <span className="postmark">
                       WITH LOVE
                       <br />
-                      27 / OCT
+                      {letter.stampDate || "27 / OCT"}
+                      {letter.stampYear && (
+                        <>
+                          <br />
+                          {letter.stampYear}
+                        </>
+                      )}
                     </span>
                     <span className="seal">♡</span>
                     <span className="envelope-to">Sukku ke liye</span>
@@ -627,8 +644,25 @@ export default function App() {
               ))}
             </div>
           </section>
-          <section className="wish-section section reveal" id="wish">
-            <p className="eyebrow">04 / One last birthday ritual</p>
+          <section
+            className={`wish-section section reveal ${wish ? "wish-made" : ""}`}
+            id="wish"
+          >
+            <div className="wish-constellation" aria-hidden="true">
+              {Array.from({ length: 16 }, (_, i) => (
+                <span
+                  key={i}
+                  style={{
+                    "--star-x": `${(i * 37) % 100}%`,
+                    "--star-y": `${(i * 23) % 95}%`,
+                    "--star-delay": `${i * 0.19}s`,
+                  }}
+                >
+                  {i % 3 === 0 ? "✦" : "✧"}
+                </span>
+              ))}
+            </div>
+            <p className="eyebrow">04 / A birthday wish, just yours</p>
             <h2>
               Close your eyes.
               <br />
@@ -639,27 +673,61 @@ export default function App() {
               <br />
               Ready? Candle aapka wait kar rahi hai.
             </p>
-            <button
-              className={`cake ${wish ? "blown" : ""}`}
-              aria-label={
-                wish ? "Relight birthday candles" : "Blow out birthday candles"
-              }
-              onClick={() => {
-                setWish((w) => !w);
-                if (!wish) celebrate();
-              }}
-            >
-              <span className="candles">
-                {[0, 1, 2].map((i) => (
-                  <span className="candle" key={i}>
-                    <i className="flame" />
-                  </span>
-                ))}
+            <div className="birthday-table">
+              <span className="wish-orbit orbit-a" aria-hidden="true" />
+              <span className="wish-orbit orbit-b" aria-hidden="true" />
+              <span className="table-note handwritten">
+                Birthday girl gets the first wish.
               </span>
-              <span className="icing">♡ ♡ ♡</span>
-              <span className="cake-layer">for Sukku</span>
-              <span className="cake-plate" />
-            </button>
+              <button
+                className={`cake ${wish ? "blown" : ""}`}
+                aria-label={
+                  wish
+                    ? "Relight birthday candles"
+                    : "Blow out birthday candles"
+                }
+                onClick={() => {
+                  setWish((w) => !w);
+                  if (!wish) celebrate();
+                }}
+              >
+                <span className="candles">
+                  {[0, 1, 2].map((i) => (
+                    <span className="candle" key={i}>
+                      <i className="flame" />
+                    </span>
+                  ))}
+                </span>
+                <span className="cake-topper">Sukku</span>
+                <span className="icing">
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span className="cake-layer">
+                  <span>♡</span>
+                  <i className="cake-piping" />
+                </span>
+                <span className="cake-bottom-tier">
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span className="cake-plate" />
+              </button>
+              <span className="cake-pedestal" aria-hidden="true" />
+              {wish && (
+                <span className="wish-ribbon" key={burst}>
+                  Your wish is on its way ♡
+                </span>
+              )}
+            </div>
             <span className="handwritten">
               {wish
                 ? "one more wish? tap to relight"
@@ -712,7 +780,12 @@ export default function App() {
         </button>
       </div>
       {note && (
-        <Modal title={note.title} onClose={() => setNote(null)}>
+        <Modal
+          title={note.title}
+          scene={note.scene}
+          date={note.date}
+          onClose={() => setNote(null)}
+        >
           <p className="letter-text">{note.text}</p>
         </Modal>
       )}
