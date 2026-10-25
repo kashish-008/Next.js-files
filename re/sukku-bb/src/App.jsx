@@ -198,7 +198,8 @@ export default function App() {
       (entries) =>
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            e.target.classList.add("revealed");
+            // Keep reveal state outside React-managed className: wish changes rerender it.
+            e.target.dataset.revealed = "true";
             observer.unobserve(e.target);
           }
         }),
@@ -328,7 +329,7 @@ export default function App() {
                 OCTOBER
               </div>
               <div className="polaroid hero-photo">
-                <MemoryPhoto memory={memories[0]} eager />
+                <MemoryPhoto memory={memories[1]} eager />
                 <span>my favourite person, always.</span>
               </div>
               <div className="mini-note">
@@ -458,25 +459,38 @@ export default function App() {
                 Ek yaad kholo. Phir se uss pal mein chalo.
               </p>
             </div>
-            <div className="real-moments">
+            <div className="world-map">
+              <div className="orbit orbit-one" aria-hidden="true" />
+              <div className="orbit orbit-two" aria-hidden="true" />
+              <div className="world-center">
+                <span>you + me</span>
+                <strong>
+                  hamari
+                  <br />
+                  yaadein
+                </strong>
+                <span aria-hidden="true">♡</span>
+              </div>
               {moments.map((moment, i) => (
                 <button
                   key={moment.scene}
-                  className={`moment-ticket ticket-${moment.scene}`}
+                  className={`world-object object-${i}`}
                   onClick={() => setNote(moment)}
+                  aria-label={`Open memory: ${moment.label}`}
                 >
-                  <span className="ticket-number">0{i + 1}</span>
-                  <span className="ticket-illustration" aria-hidden="true">
+                  <span className="object-icon" aria-hidden="true">
                     {moment.icon}
                   </span>
-                  <span className="ticket-date">{moment.date}</span>
-                  <strong>{moment.label}</strong>
-                  <span className="ticket-invitation">
-                    {i === 0 ? "Woh bheegi hui raat…" : "Yeh pal yaad hai?"}{" "}
-                    <ArrowRight size={17} />
-                  </span>
+                  <span>{moment.label}</span>
+                  <i aria-hidden="true">↗</i>
                 </button>
               ))}
+              <span className="world-doodle doodle-one" aria-hidden="true">
+                ✧
+              </span>
+              <span className="world-doodle doodle-two" aria-hidden="true">
+                ♡
+              </span>
             </div>
           </section>
 

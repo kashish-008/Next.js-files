@@ -996,7 +996,7 @@ footer > a:last-child {
     opacity 0.7s,
     transform 0.7s;
 }
-.revealed {
+.reveal[data-revealed="true"] {
   opacity: 1;
   transform: none;
 }
@@ -2343,5 +2343,21 @@ h3 {
   .is-open .hero-copy > *,
   .is-open .hero-art {
     animation: none !important;
+  }
+}
+
+.world-object > span:nth-child(2) {
+  max-width: 165px;
+  line-height: 1.2;
+}
+.world-center > span:last-child {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  line-height: 1;
+}
+@media (max-width: 600px) {
+  .world-object > span:nth-child(2) {
+    max-width: 115px;
+    font-size: 20px;
   }
 }
