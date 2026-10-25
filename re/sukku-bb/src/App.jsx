@@ -3,8 +3,6 @@ import {
   ArrowDown,
   ArrowLeft,
   ArrowRight,
-  Music2,
-  VolumeX,
   X,
   Heart,
   Gift,
@@ -13,6 +11,7 @@ import {
   Cake,
 } from "lucide-react";
 import { memories } from "./data/memories";
+import BirthdayPlaylist from "./components/BirthdayPlaylist/BirthdayPlaylist";
 
 // Memories grounded in the supplied letters; no invented exact day for the summer scenes.
 const moments = [
@@ -222,9 +221,8 @@ export default function App() {
   const [wish, setWish] = useState(false);
   const [surpriseStep, setSurpriseStep] = useState(0);
   const [finalOpen, setFinalOpen] = useState(false);
-  const [playing, setPlaying] = useState(false);
-  const [audioError, setAudioError] = useState(false);
-  const audio = useRef(null);
+  const [fortune, setFortune] = useState(-1);
+  const [foundStars, setFoundStars] = useState([]);
   useEffect(() => {
     if (opened) return;
     const before = document.body.style.overflow;
@@ -249,20 +247,6 @@ export default function App() {
     document.querySelectorAll(".reveal").forEach((e) => observer.observe(e));
     return () => observer.disconnect();
   }, [opened, unwrapping]);
-  async function toggleMusic() {
-    if (playing) {
-      audio.current.pause();
-      setPlaying(false);
-    } else {
-      try {
-        await audio.current.play();
-        setPlaying(true);
-        setAudioError(false);
-      } catch {
-        setAudioError(true);
-      }
-    }
-  }
   function followClue(target) {
     setNote(null);
     requestAnimationFrame(() => {
@@ -306,7 +290,6 @@ export default function App() {
   const memory = memories[slide];
   return (
     <>
-      <audio ref={audio} src="/music/our-song.mp3" loop preload="none" />
       <Confetti burst={burst} />
       {!opened && (
         <div
@@ -409,6 +392,19 @@ export default function App() {
               </div>
               <div className="polaroid hero-photo">
                 <MemoryPhoto memory={memories[1]} eager />
+                <button
+                  className="portrait-heart"
+                  aria-label="Open the little heart on Sukku's photo"
+                  onClick={() => {
+                    setNote({
+                      title: "Photo ke kone mein ek chhoti si baat",
+                      text: "Aaj gallery mein apni ek nayi favourite photo add karna. Birthday girl ki smile waali. Iss frame ki tarah, apni khushi ko bhi thoda sambhal ke rakhna.",
+                    });
+                    celebrate();
+                  }}
+                >
+                  ♡
+                </button>
                 <span>my favourite person, always.</span>
               </div>
               <div className="mini-note">
@@ -762,6 +758,37 @@ export default function App() {
               and that’s my favourite thing about us.
             </span>
           </section>
+          <div className="fortune-stop">
+            <div>
+              <span className="eyebrow">Ek chhota sa birthday detour</span>
+              <h2>Madam ji ki lucky chit.</h2>
+              <p>Folded paper. Ek chhota sa message. Kya niklega?</p>
+            </div>
+            <button
+              className={`fortune-ticket ${fortune >= 0 ? "fortune-open" : ""}`}
+              aria-label="Unfold a birthday fortune"
+              onClick={() => {
+                setFortune((n) => (n + 1) % 3);
+                celebrate();
+              }}
+            >
+              <span className="fortune-fold" aria-hidden="true">
+                ✧
+              </span>
+              <span className="fortune-paper" aria-live="polite">
+                {fortune < 0
+                  ? "Sukku ke liye. No peeking."
+                  : [
+                      "Aaj koi chhoti si khushi choose karo. Bina “baad mein” bole.",
+                      "Birthday forecast: extra smiles, zero boring wishes, aur thode se nakhre allowed.",
+                      "Aaj apni favourite cheez ke liye haan bolna. Yeh chit permission hai.",
+                    ][fortune]}
+              </span>
+              <small>
+                {fortune < 0 ? "tap to unfold" : "ek aur chit? tap again ↗"}
+              </small>
+            </button>
+          </div>
           <section className="letters section reveal" id="letters">
             <div className="section-heading">
               <div>
@@ -858,21 +885,55 @@ export default function App() {
             id="wish"
             tabIndex={-1}
           >
-            <div className="wish-constellation" aria-hidden="true">
-              {Array.from({ length: 16 }, (_, i) => (
-                <span
-                  key={i}
-                  style={{
-                    "--star-x": `${(i * 37) % 100}%`,
-                    "--star-y": `${(i * 23) % 95}%`,
-                    "--star-delay": `${i * 0.19}s`,
-                  }}
-                >
-                  {i % 3 === 0 ? "✦" : "✧"}
-                </span>
-              ))}
+            <div className="wish-constellation">
+              {Array.from({ length: 16 }, (_, i) =>
+                i % 5 === 0 ? (
+                  <button
+                    key={i}
+                    className={`wish-secret-star ${foundStars.includes(i) ? "star-found" : ""}`}
+                    style={{
+                      "--star-x": `${(i * 37) % 100}%`,
+                      "--star-y": `${(i * 23) % 95}%`,
+                    }}
+                    aria-label={`Catch birthday star ${i / 5 + 1}`}
+                    onClick={() => {
+                      setFoundStars((stars) =>
+                        stars.includes(i) ? stars : [...stars, i],
+                      );
+                      setNote({
+                        title: "Aapne ek birthday star pakad liya!",
+                        text: [
+                          "Yeh star aapki courage ke naam. Apne dreams ke liye ek chhota step, jab aap ready ho.",
+                          "Yeh star aapke rest ke naam. Kabhi khud ko bhi utna hi pyaar se treat karna.",
+                          "Yeh star aapki curiosity ke naam. Kuch naya try karna, sirf isliye kyunki mann hai.",
+                          "Aur yeh wala… bas isliye, kyunki birthday girl ko ek extra star milna chahiye.",
+                        ][i / 5],
+                      });
+                      celebrate();
+                    }}
+                  >
+                    {foundStars.includes(i) ? "★" : "✧"}
+                  </button>
+                ) : (
+                  <span
+                    key={i}
+                    aria-hidden="true"
+                    style={{
+                      "--star-x": `${(i * 37) % 100}%`,
+                      "--star-y": `${(i * 23) % 95}%`,
+                      "--star-delay": `${i * 0.19}s`,
+                    }}
+                  >
+                    {i % 3 === 0 ? "✦" : "✧"}
+                  </span>
+                ),
+              )}
             </div>
             <p className="eyebrow">04 / A birthday wish, just yours</p>
+            <span className="star-hint handwritten">
+              psst… four stars have something inside.{" "}
+              {foundStars.length > 0 ? `${foundStars.length}/4 found` : ""}
+            </span>
             <h2>
               Close your eyes.
               <br />
@@ -1010,21 +1071,7 @@ export default function App() {
           </p>
           <a href="#home">Back to the birthday girl ↑</a>
         </footer>
-        <button
-          className="music-toggle"
-          onClick={toggleMusic}
-          aria-label={playing ? "Pause music" : "Play music"}
-          aria-pressed={playing}
-        >
-          {playing ? <Music2 size={17} /> : <VolumeX size={17} />}
-          <span>
-            {audioError
-              ? "Tap to retry music"
-              : playing
-                ? "Our little soundtrack"
-                : "Music off"}
-          </span>
-        </button>
+        <BirthdayPlaylist />
       </div>
       {note && (
         <Modal

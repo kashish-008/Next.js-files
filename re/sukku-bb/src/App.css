@@ -2038,7 +2038,7 @@ h3 {
   font-family: "Caveat", cursive;
   font-size: 28px;
   color: #a83142;
-  top: 63px;
+  top: 112px;
   z-index: 5;
   rotate: -4deg;
   pointer-events: none;
@@ -2779,6 +2779,410 @@ h3 {
     animation: none !important;
   }
   .final-birthday-note {
+    animation: none !important;
+  }
+}
+.portrait-heart {
+  position: absolute;
+  top: 27px;
+  right: 27px;
+  z-index: 3;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  background: #a83142;
+  color: #fff4dc;
+  border: 1px solid #e6b386;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  rotate: 9deg;
+  box-shadow: 2px 4px 0 #60273322;
+  transition: transform 0.25s;
+}
+.portrait-heart:hover {
+  transform: scale(1.14) rotate(-10deg);
+}
+.fortune-stop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  width: min(1100px, 84%);
+  margin: 65px auto 20px;
+  padding: 25px 0;
+}
+.fortune-stop h2 {
+  font-size: 36px;
+  margin: 15px 0;
+}
+.fortune-stop > div > p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.fortune-ticket {
+  position: relative;
+  flex-shrink: 0;
+  width: 300px;
+  min-height: 170px;
+  padding: 30px;
+  background: #e7d2a4;
+  border: 1px dashed #a77d4655;
+  box-shadow: 5px 7px 0 #a77d4619;
+  rotate: -4deg;
+  text-align: center;
+  transition:
+    rotate 0.4s,
+    background 0.4s;
+}
+.fortune-ticket:hover {
+  rotate: 0deg;
+}
+.fortune-fold {
+  font-size: 40px;
+  display: block;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+.fortune-paper {
+  display: block;
+  font-family: "Caveat";
+  font-size: 26px;
+  line-height: 1.3;
+}
+.fortune-ticket > small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-top: 18px;
+  color: #80654a;
+}
+.fortune-open {
+  background: #fff6df;
+  animation: paper-unfold 0.6s both;
+}
+.fortune-open .fortune-fold {
+  font-size: 24px;
+}
+.wish-constellation .wish-secret-star {
+  position: absolute;
+  top: var(--star-y);
+  left: var(--star-x);
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: #e5bc7a09;
+  border: 1px dashed #e5bc7a55;
+  border-radius: 50%;
+  color: #f9d39b;
+  font-size: 28px;
+  pointer-events: auto;
+  cursor: pointer;
+  transition:
+    scale 0.2s,
+    background 0.2s;
+  z-index: 1;
+}
+.wish-secret-star:hover {
+  scale: 1.15;
+  background: #e5bc7a22;
+}
+.wish-secret-star.star-found {
+  color: #ffe3a8;
+  background: #e5bc7a18;
+}
+.wish-constellation {
+  z-index: 0;
+}
+.wish-constellation > span {
+  pointer-events: none;
+}
+.wish-section > h2,
+.wish-section > p,
+.wish-section > .star-hint,
+.wish-section > .handwritten,
+.wish-message,
+.last-surprise,
+.birthday-table {
+  position: relative;
+  z-index: 1;
+}
+.wish-constellation .wish-secret-star:nth-child(1) {
+  left: 0;
+  top: 15%;
+}
+.wish-constellation .wish-secret-star:nth-child(6) {
+  left: auto;
+  right: 0;
+  top: 30%;
+}
+.wish-constellation .wish-secret-star:nth-child(11) {
+  left: 0;
+  top: 60%;
+}
+.wish-constellation .wish-secret-star:nth-child(16) {
+  left: auto;
+  right: 0;
+  top: 78%;
+}
+.star-hint {
+  display: block;
+  font-size: 21px;
+  color: #e8bd92;
+  margin-top: 16px;
+}
+.playlist-panel {
+  width: min(430px, calc(100% - 28px));
+  max-height: 90dvh;
+  overflow-y: auto;
+  background: #fff7e8;
+  color: #492c2e;
+  border: 1px solid #bca184;
+  padding: 35px 28px 26px;
+  box-shadow: 0 20px 100px #24172155;
+  animation: paper-unfold 0.4s both;
+}
+.playlist-panel::backdrop {
+  background: #30242d77;
+  backdrop-filter: blur(5px);
+}
+.playlist-panel h2 {
+  font-size: 33px;
+  line-height: 1.15;
+  margin: 16px 0 25px;
+}
+.playlist-record {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background: repeating-radial-gradient(
+    circle,
+    #422b30 0px,
+    #422b30 3px,
+    #604148 4px,
+    #422b30 5px
+  );
+  display: grid;
+  place-items: center;
+  box-shadow: 0 7px 14px #492c2e22;
+  animation: record-spin 9s linear infinite;
+  animation-play-state: paused;
+}
+.playlist-record > span {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  line-height: 0.9;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #ac3a4b;
+  color: #fff0d2;
+  font-family: Georgia;
+  font-size: 24px;
+}
+.playlist-record small {
+  font-family: "DM Sans";
+  font-size: 7px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+.record-playing {
+  animation-play-state: running;
+}
+.playlist-now {
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.playlist-current {
+  text-align: center;
+  font-size: 23px;
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+.playlist-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 20px 0;
+}
+.playlist-controls button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+}
+.playlist-controls .playlist-play {
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--cream);
+}
+.playlist-tracks {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 20px;
+  border-top: 1px solid #492c2e22;
+}
+.playlist-tracks li {
+  border-bottom: 1px solid #492c2e18;
+}
+.playlist-tracks button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 15px 8px;
+}
+.playlist-tracks button > span:first-child {
+  font-size: 9px;
+  color: var(--muted);
+}
+.playlist-tracks button > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.playlist-tracks strong {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.playlist-tracks small {
+  display: block;
+  font-size: 9px;
+  margin-top: 5px;
+  color: var(--muted);
+}
+.playlist-tracks .selected-song {
+  background: #a8314209;
+  color: var(--red);
+}
+.playlist-upload {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  border: 1px dashed #a8314266;
+  padding: 14px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.playlist-upload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.playlist-upload:focus-within {
+  outline: 2px solid #b3832c;
+  outline-offset: 3px;
+}
+.playlist-full {
+  opacity: 0.5;
+  cursor: default;
+}
+.playlist-help {
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 13px;
+}
+.playlist-error {
+  color: var(--red);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+.music-levels {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  height: 15px;
+}
+.music-levels i {
+  width: 2px;
+  height: 10px;
+  background: var(--red);
+  animation: music-bounce 0.8s ease-in-out infinite alternate;
+}
+.music-levels i:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.music-levels i:nth-child(3) {
+  animation-delay: -0.6s;
+}
+@keyframes record-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes music-bounce {
+  to {
+    scale: 1 0.3;
+  }
+}
+@media (max-width: 600px) {
+  .fortune-stop {
+    width: 86%;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 45px;
+  }
+  .fortune-stop h2 {
+    font-size: 31px;
+  }
+  .fortune-ticket {
+    width: min(300px, 95%);
+  }
+  .portrait-heart {
+    top: 22px;
+    right: 22px;
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+  }
+  .wish-constellation .wish-secret-star {
+    width: 32px;
+    height: 32px;
+    font-size: 23px;
+  }
+  .wish-constellation {
+    inset-inline: 7px;
+  }
+  .star-hint {
+    font-size: 18px;
+    max-width: 230px;
+    margin-inline: auto;
+  }
+  .playlist-panel {
+    padding: 35px 22px 25px;
+  }
+  .playlist-panel h2 {
+    font-size: 30px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .playlist-record,
+  .music-levels i,
+  .fortune-open,
+  .playlist-panel {
     animation: none !important;
   }
 }
