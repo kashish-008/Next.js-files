@@ -34,7 +34,7 @@ const moments = [
   },
   {
     icon: "🪔",
-    label: "Pooja ke paal",
+    label: "Pooja ke baad",
     title: "Matha tekte waqt, aapka haath",
     date: "23–29 October 2025",
     scene: "prayer",
@@ -220,6 +220,8 @@ export default function App() {
   const [slide, setSlide] = useState(0);
   const [note, setNote] = useState(null);
   const [wish, setWish] = useState(false);
+  const [surpriseStep, setSurpriseStep] = useState(0);
+  const [finalOpen, setFinalOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
   const audio = useRef(null);
@@ -260,6 +262,43 @@ export default function App() {
         setAudioError(true);
       }
     }
+  }
+  function followClue(target) {
+    setNote(null);
+    requestAnimationFrame(() => {
+      const element = document.getElementById(target);
+      element?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+        block: "center",
+      });
+      element?.focus({ preventScroll: true });
+    });
+  }
+  function openBalloon(index) {
+    setSurpriseStep((step) => Math.max(step, 1));
+    const surprises = [
+      [
+        "Sukku, aapke naam ek secret…",
+        "Iss page mein teen chhoti surprises chhupayi hain. Pehla clue: kuch photos ke peeche bhi baatein hoti hain. Agle section mein photo ke paas ek laal tab dhoondho.",
+      ],
+      [
+        "Madam ji, no peeking!",
+        "Aapne secret trail dhoondh li. Ab seedha neeche mat bhaagna… pehle photo ke peeche wala laal tab kholna. Wahan kuch aapka wait kar raha hai.",
+      ],
+      [
+        "Ek balloon, pehla clue",
+        "Aapka birthday mission shuru. Ek photo hai, uske paas ek chhota laal tab hai. Usko kheenchne se pehla secret khulega. Ready?",
+      ],
+    ];
+    setNote({
+      title: surprises[index][0],
+      text: surprises[index][1],
+      nextTarget: "photo-surprise",
+      nextLabel: "Pehla clue dhoondhein →",
+    });
+    celebrate();
   }
   function celebrate() {
     setBurst((b) => b + 1);
@@ -389,13 +428,7 @@ export default function App() {
                     key={i}
                     className={`balloon balloon-${i}`}
                     aria-label={`Open birthday surprise ${i + 1}`}
-                    onClick={() => {
-                      setNote({
-                        title: text,
-                        text: "A little birthday reminder: aap meri favourite person ho. ♡",
-                      });
-                      celebrate();
-                    }}
+                    onClick={() => openBalloon(i)}
                   >
                     <span>♡</span>
                   </button>
@@ -429,6 +462,49 @@ export default function App() {
               ))}
             </div>
           </div>
+          <aside
+            className="surprise-trail"
+            aria-label="Birthday surprise trail"
+          >
+            <div>
+              <span className="eyebrow">Sukku's little birthday mission</span>
+              <p aria-live="polite">
+                {
+                  [
+                    "Teen secrets chhupe hain. Ek balloon se shuru karo.",
+                    "Pehla clue mil gaya. Ab photo ke paas dekho.",
+                    "Ab ek khaas seal aapka wait kar rahi hai.",
+                    "Secrets mil gaye. Ab apni wish maango.",
+                    "All secrets found. Lekin ek last baat…",
+                  ][surpriseStep]
+                }
+              </p>
+            </div>
+            <ol>
+              {[
+                "A balloon",
+                "Photo ke peeche",
+                "The secret seal",
+                "Your wish",
+              ].map((label, i) => (
+                <li
+                  key={label}
+                  className={
+                    surpriseStep > i
+                      ? "trail-found"
+                      : surpriseStep === i
+                        ? "trail-current"
+                        : ""
+                  }
+                >
+                  <span>
+                    {surpriseStep > i ? "✓" : String(i + 1).padStart(2, "0")}
+                  </span>
+                  {surpriseStep >= i ? label : "???"}
+                </li>
+              ))}
+            </ol>
+          </aside>
           <section className="scrapbook section reveal" id="memories">
             <div className="section-heading">
               <div>
@@ -456,6 +532,33 @@ export default function App() {
                     feelings ♡
                   </span>
                 </article>
+                <button
+                  id="photo-surprise"
+                  className={`photo-secret ${surpriseStep >= 2 ? "secret-found" : ""}`}
+                  disabled={surpriseStep < 1}
+                  aria-label={
+                    surpriseStep < 1
+                      ? "Open a balloon to unlock the hidden photo note"
+                      : "Open the secret behind the photo"
+                  }
+                  onClick={() => {
+                    setSurpriseStep((step) => Math.max(step, 2));
+                    setNote({
+                      title: "Birthday rule no. 1",
+                      text: "Aaj ke din apne aap ko thoda extra pyaar dena. Apni favourite photo lena, apne nakhre poore karna, aur bina kisi reason ke bhi smile karna.\n\nAur haan… abhi ek sealed surprise baaki hai. Letters ke neeche ek golden seal dhoondho. Us par sirf aapka naam hai.",
+                      nextTarget: "secret-seal",
+                      nextLabel: "Agla secret dhoondho →",
+                    });
+                    celebrate();
+                  }}
+                >
+                  <span aria-hidden="true">↗</span>
+                  {surpriseStep < 1
+                    ? "A balloon has the key"
+                    : surpriseStep >= 2
+                      ? "Read your secret again"
+                      : "Psst… photo ke peeche"}
+                </button>
               </div>
               <div className="memory-caption" aria-live="polite">
                 <span className="handwritten">
@@ -710,8 +813,50 @@ export default function App() {
             </div>
           </section>
           <section
+            className="sealed-surprise"
+            id="secret-seal"
+            tabIndex={-1}
+            aria-labelledby="seal-heading"
+          >
+            <div>
+              <span className="eyebrow">For Sukku's eyes only</span>
+              <h2 id="seal-heading">Iske andar kya hai?</h2>
+              <p>
+                {surpriseStep < 2
+                  ? "Photo ke peeche wali note mein iski chaabi hai."
+                  : "Aap yahan tak aa gayi. Ab seal khol kar dekho."}
+              </p>
+            </div>
+            <button
+              className={`secret-seal-button ${surpriseStep >= 3 ? "seal-broken" : ""}`}
+              disabled={surpriseStep < 2}
+              aria-label="Break Sukku's secret seal"
+              onClick={() => {
+                setSurpriseStep((step) => Math.max(step, 3));
+                setNote({
+                  title: "Aaj aapka din hai, Sukku.",
+                  text: "Toh ek chhoti si request hai: iss waqt sab kuch side par rakh kar apne liye ek wish socho. Koi aisi cheez jo aap dil se chahti ho.\n\nMujhe batana zaroori nahi. Yeh wali wish sirf aapki hai. Agla surprise candles ke bujhne ke baad milega.",
+                  nextTarget: "wish",
+                  nextLabel: "Apni wish maangein →",
+                });
+                celebrate();
+              }}
+            >
+              <span aria-hidden="true">♡</span>
+              <strong>{surpriseStep < 2 ? "Sealed" : "Sukku"}</strong>
+              <small>
+                {surpriseStep >= 3
+                  ? "open again"
+                  : surpriseStep < 2
+                    ? "find the key first"
+                    : "tap to break the seal"}
+              </small>
+            </button>
+          </section>
+          <section
             className={`wish-section section reveal ${wish ? "wish-made" : ""}`}
             id="wish"
+            tabIndex={-1}
           >
             <div className="wish-constellation" aria-hidden="true">
               {Array.from({ length: 16 }, (_, i) => (
@@ -753,7 +898,10 @@ export default function App() {
                 }
                 onClick={() => {
                   setWish((w) => !w);
-                  if (!wish) celebrate();
+                  if (!wish) {
+                    celebrate();
+                    if (surpriseStep >= 3) setSurpriseStep(4);
+                  }
                 }}
               >
                 <span className="candles">
@@ -815,6 +963,40 @@ export default function App() {
                 <p className="quiet">A little wish. A whole lot of love.</p>
               )}
             </div>
+            <div className="last-surprise" aria-live="polite">
+              {surpriseStep >= 3 && wish && !finalOpen ? (
+                <>
+                  <span className="handwritten">Ruko… ek last cheez hai.</span>
+                  <button
+                    className="final-secret-button"
+                    onClick={() => {
+                      setFinalOpen(true);
+                      celebrate();
+                    }}
+                  >
+                    Sirf aapke liye. Open? <Gift size={18} />
+                  </button>
+                </>
+              ) : null}
+              {finalOpen && (
+                <div className="final-birthday-note">
+                  <span className="eyebrow">You found every little secret</span>
+                  <h3>Mera birthday plan successful?</h3>
+                  <p>
+                    Sukku, iss page ka har click aapko thoda aur smile karwane
+                    ke liye tha. Agar abhi aap muskura rahi ho, toh haan,
+                    successful hai.
+                  </p>
+                  <p>
+                    Happy birthday, mera Chotta Don. Aapki khushi mere liye
+                    bahut matter karti hai.
+                  </p>
+                  <span className="handwritten">
+                    Ab ek smile toh banti hai. — Abhi ♡
+                  </span>
+                </div>
+              )}
+            </div>
           </section>
         </main>
         <footer>
@@ -852,6 +1034,14 @@ export default function App() {
           onClose={() => setNote(null)}
         >
           <p className="letter-text">{note.text}</p>
+          {note.nextTarget && (
+            <button
+              className="primary clue-button"
+              onClick={() => followClue(note.nextTarget)}
+            >
+              {note.nextLabel}
+            </button>
+          )}
         </Modal>
       )}
     </>
