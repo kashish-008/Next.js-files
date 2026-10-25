@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
 :root {
   font-family: "DM Sans", sans-serif;
   color: #492c2e;
@@ -1408,5 +1409,277 @@ footer > a:last-child {
   }
   .confetti {
     display: none;
+  }
+}
+/* A quieter reading face, with handwritten details kept for the personal notes. */
+:root {
+  font-family: "Manrope", sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-family: "DM Serif Display", Georgia, serif;
+  letter-spacing: -0.025em;
+}
+.gift-opening h1 {
+  font-size: clamp(48px, 6.5vw, 88px);
+  line-height: 1.08;
+}
+.gift-opening > * {
+  animation: opening-arrive 0.9s both cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gift-opening > .eyebrow {
+  animation-delay: 0.1s;
+}
+.gift-opening > h1 {
+  animation-delay: 0.25s;
+}
+.gift-opening > p:not(.eyebrow) {
+  animation-delay: 0.45s;
+}
+.gift-opening > .gift {
+  animation: gift-arrive 1.1s 0.6s both cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gift-opening > .handwritten {
+  animation-delay: 1s;
+}
+.gift-opening > small {
+  animation-delay: 1.2s;
+}
+.gift-opening .opening-star {
+  animation: star-drift 5s ease-in-out infinite;
+}
+.gift-opening {
+  transition:
+    opacity 0.5s 1s,
+    clip-path 1.45s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.gift-opening.unwrapping {
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  pointer-events: none;
+}
+.unwrapping .gift {
+  animation: gift-shake 0.35s both;
+}
+.unwrapping .gift-lid {
+  animation: lid-release 0.85s 0.2s both;
+}
+.unwrapping .bow {
+  animation: lid-release 0.85s 0.2s both;
+}
+.unwrapping .gift-ribbon {
+  transition: transform 0.65s;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+.is-open .hero-copy > * {
+  animation: opening-arrive 0.9s both;
+}
+.is-open .hero-copy h1 {
+  animation-delay: 0.15s;
+}
+.is-open .hero-description {
+  animation-delay: 0.3s;
+}
+.is-open .hero-copy .primary {
+  animation-delay: 0.45s;
+}
+.is-open .hero-art {
+  animation: opening-arrive 1.2s 0.3s both;
+}
+.chapter-list {
+  max-width: 900px;
+  margin: auto;
+}
+.chapter {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 35px;
+  padding: 48px 0;
+  border-top: 1px solid #a8314230;
+}
+.chapter-number {
+  font-family: "DM Serif Display", serif;
+  font-size: 65px;
+  color: #c9aaa0;
+  line-height: 1;
+}
+.chapter h3 {
+  font-size: 36px;
+  margin: 14px 0 18px;
+}
+.chapter p:not(.eyebrow) {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--muted);
+  max-width: 640px;
+}
+.chapter .handwritten {
+  display: block;
+  margin-top: 21px;
+  font-size: 27px;
+  transform: rotate(-2deg);
+}
+.keepsakes {
+  background: #efe5d3;
+  max-width: none;
+}
+.keepsake-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 12%;
+  max-width: 950px;
+  margin: auto;
+  align-items: center;
+}
+.keepsake-ticket {
+  background: #a83142;
+  color: #fff2dd;
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+  gap: 25px;
+  transform: rotate(-6deg);
+  border: 2px dashed #fff2dd88;
+  box-shadow: 8px 12px 0 #d7c8b3;
+}
+.keepsake-ticket > span {
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+.keepsake-ticket strong {
+  font-family: "DM Serif Display";
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+.keepsake-ticket small {
+  font-size: 12px;
+  line-height: 1.9;
+  border-bottom: 1px dashed #fff2dd88;
+  padding-bottom: 22px;
+}
+.keepsake-writing p {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 25px;
+}
+.keepsake-writing .handwritten {
+  font-size: 27px;
+}
+.chapter:hover .chapter-number {
+  color: var(--red);
+  transition: color 0.4s;
+}
+.envelope:hover .envelope-flap {
+  transform: rotateX(35deg);
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+.note-dialog {
+  animation: paper-unfold 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes opening-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+@keyframes gift-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(45px) rotate(-14deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-5deg) scale(1);
+  }
+}
+@keyframes gift-shake {
+  25% {
+    rotate: -6deg;
+  }
+  75% {
+    rotate: 6deg;
+  }
+}
+@keyframes lid-release {
+  to {
+    translate: 10px -130px;
+    rotate: -20deg;
+    opacity: 0;
+  }
+}
+@keyframes star-drift {
+  50% {
+    translate: 0 -15px;
+    rotate: 15deg;
+  }
+}
+@keyframes paper-unfold {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateX(-14deg) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(900px) rotateX(0) translateY(0);
+  }
+}
+@media (max-width: 600px) {
+  .chapter {
+    grid-template-columns: 40px 1fr;
+    gap: 18px;
+    padding: 32px 0;
+  }
+  .chapter-number {
+    font-size: 38px;
+  }
+  .chapter h3 {
+    font-size: 29px;
+  }
+  .chapter p:not(.eyebrow) {
+    font-size: 14px;
+    line-height: 1.95;
+  }
+  .chapter .handwritten {
+    font-size: 24px;
+  }
+  .keepsake-layout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .keepsake-ticket {
+    width: 250px;
+    margin: 0 auto;
+  }
+  .keepsake-writing p {
+    font-size: 14px;
+  }
+  .hero h1 {
+    font-size: 74px;
+    line-height: 1.04;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gift-opening {
+    transition: none;
+  }
+  .gift-opening.unwrapping {
+    clip-path: none;
+  }
+  .gift-opening > *,
+  .is-open .hero-copy > *,
+  .is-open .hero-art,
+  .note-dialog {
+    animation: none !important;
+    filter: none;
   }
 }

@@ -51,19 +51,19 @@ const moments = [
 ];
 const letters = [
   {
-    title: "Birthday girl ke naam",
-    label: "For today",
-    text: "Dear Sukku,\n\nHappy birthday! This envelope is waiting for your birthday message. Write what you love about her and what you wish for her this year.\n\nAdd your own words here, in the way you would say them.",
+    title: "Meri birthday girl",
+    label: "Aaj, sirf aapke liye",
+    text: "Meri Pyari Sukku,\n\nAapke birthday ki tayari karte waqt mere mann mein hamesha ek hi baat hoti hai: aapko special kaise feel karwaun? Pichli baar colours, pages, glue aur photos the. Is baar yeh chhoti si website hai.\n\nMain kabhi-kabhi words mein apna pyaar theek se nahi bata pata. Toh jo bol nahi paata, woh banane ki koshish karta hoon. Har chhoti cheez mein bas yahi hai: aapki smile dekhni hai.\n\nHappy birthday, meri jaan. Aapki khushiyan, aapke sapne, aur aapka woh pyaara sa bachpana hamesha aise hi rahe.",
   },
   {
-    title: "Chhoti baatein, badi khushi",
-    label: "For a little smile",
-    text: "Dear Sukku,\n\nThis letter is a place for a favourite memory. Add a funny moment, a tiny detail, or an inside joke that only you two understand.\n\nMake it yours.",
+    title: "Woh sab jo yaad reh gaya",
+    label: "Hamari chhoti-chhoti baatein",
+    text: "Meri Pyari Sukku,\n\nMujhe lagta tha jab milenge toh bahut kuch bolunga. Phir aap saamne aayi aur main chup ho gaya. Aapka woh message, café ki paas wali chair, aur mere thande haathon ko apne haathon mein pakadna… abhi tak yaad hai.\n\nPhir kitne chapters aaye. Shinchan, fries, mehndi, Harry Potter gift. Shaam ko milna, golgappe, ice cream. Baarish mein bheeg kar aana aur Squid Game dekhte-dekhte subah kar dena.\n\nKabhi socha tha calls par ki ek din yeh sab karenge. Ab dekho, kitni saari yaadein ho gayi hain. Aur main inmein se ek bhi khona nahi chahta.",
   },
   {
-    title: "So many tomorrows",
-    label: "For the days ahead",
-    text: "Dear Sukku,\n\nThis letter is for the memories still to come. Add a place you want to visit, something you want to do together, or a little birthday promise.\n\nYour own words belong here.",
+    title: "Abhi kitaab baaki hai",
+    label: "Hamare aane wale kal ke liye",
+    text: "Meri Pyari Sukku,\n\nMujhe aapse materialistic kuch nahi chahiye. Aapka trust, aapka saath, aur ek simple si life jahan hum apne sapne milkar poore karein.\n\nSaath khana banana, shaam ko kya khayenge sochna, aur bina jaane ki tension ke baith kar baatein karna. Chhoti cheezein hain, par mere liye bahut badi khushi hain.\n\nMeri wish hai ki hum ek dusre ko samajhte rahein, support karein, aur har naye phase mein saath grow karein. Ek din kisi pahadi jagah par coffee peete hue in letters ko phir padhein.\n\nApni story ke bahut saare khoobsurat pages likh chuke hain. Abhi poori kitaab likhni baaki hai.",
   },
 ];
 
@@ -124,6 +124,9 @@ function Modal({ title, children, onClose }) {
 }
 export default function App() {
   const [opened, setOpened] = useState(false);
+  const [unwrapping, setUnwrapping] = useState(false);
+  const openingTimer = useRef(null);
+  useEffect(() => () => clearTimeout(openingTimer.current), []);
   const [burst, setBurst] = useState(0);
   const [slide, setSlide] = useState(0);
   const [note, setNote] = useState(null);
@@ -178,7 +181,10 @@ export default function App() {
       <audio ref={audio} src="/music/our-song.mp3" loop preload="none" />
       <Confetti burst={burst} />
       {!opened && (
-        <div className="gift-opening">
+        <div
+          className={`gift-opening ${unwrapping ? "unwrapping" : ""}`}
+          aria-busy={unwrapping}
+        >
           <span className="opening-star star-a">✳</span>
           <span className="opening-star star-b">✧</span>
           <p className="eyebrow">27 October · A very special delivery</p>
@@ -190,9 +196,19 @@ export default function App() {
           <p>Sukku, aapke liye kuch banaya hai.</p>
           <button
             className="gift"
+            disabled={unwrapping}
             onClick={() => {
-              setOpened(true);
-              celebrate();
+              setUnwrapping(true);
+              const reduced = window.matchMedia(
+                "(prefers-reduced-motion: reduce)",
+              ).matches;
+              openingTimer.current = setTimeout(
+                () => {
+                  setOpened(true);
+                  celebrate();
+                },
+                reduced ? 0 : 1450,
+              );
             }}
             aria-label="Unwrap your birthday surprise"
           >
@@ -418,6 +434,124 @@ export default function App() {
               ))}
               <span className="world-doodle doodle-one">✧</span>
               <span className="world-doodle doodle-two">♡</span>
+            </div>
+          </section>
+
+          <section className="story-chapters section reveal" id="story">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">The story behind this little world</p>
+                <h2>
+                  Kitni door se,
+                  <br />
+                  <em>kitne paas.</em>
+                </h2>
+              </div>
+              <p>
+                Har chapter mein ek chhoti si baat hai jo ab bhi yaad hai. Aapko
+                bhi?
+              </p>
+            </div>
+            <div className="chapter-list">
+              {[
+                [
+                  "01",
+                  "Ek random chat",
+                  "21 July 2021",
+                  "Ek live song ki chat se shuru hui baat Snapchat tak pahunch gayi. Tab kya pata tha ki screen ke us paar wali ladki ek din meri favourite person ban jayegi.",
+                  "“Aur batao…”",
+                ],
+                [
+                  "02",
+                  "Phir se shuru hui baatein",
+                  "29 October 2024",
+                  "Pehli call par nervousness thi. Phir baatein aisi chali ki raat ke ek baje se chaar-paanch baj gaye. Mere paas sawaal kam the, “aur batao” bahut zyada.",
+                  "Ek call. Aur phir roz ka intezaar.",
+                ],
+                [
+                  "03",
+                  "Finally, aap saamne thi",
+                  "2 February 2025",
+                  "Subah chaar baje uthna, bus ka safar, aur phir Bathinda mein aapko pehli baar dekhna. Black-white top, flower earrings… kuch details dil bina koshish ke yaad rakh leta hai. Café mein saamne baitha toh aapne paas bula liya.",
+                  "Saamne wali chair nahi. Paas wali.",
+                ],
+                [
+                  "04",
+                  "Woh chaar din",
+                  "March 2025",
+                  "Shinchan, burger aur fries, mehndi, dance seekhna aur Harry Potter wala gift. Calls par jo simple si cheezein imagine ki thi, woh ek-ek karke real ho rahi thi.",
+                  "Ek din aur ruk jao na.",
+                ],
+                [
+                  "05",
+                  "200 km se 3 km",
+                  "June–July 2025",
+                  "Training ke dino mein shaam ka matlab tha aapse milna. Park, phase 5 ka dosa, 3B2 ke golgappe, Sukhna Lake ki photos aur woh pehli movie date. Movie kaisi bhi thi… company toh best thi.",
+                  "Bas aaj hi khayenge, kal nahi.",
+                ],
+                [
+                  "06",
+                  "Birthday ki secret tayari",
+                  "October 2025",
+                  "Stationery ki shopping, photos select karna aur raat ko thoda-thoda cards banana. Kisi ke aane par samaan bed ke neeche chhupa dena. Aapko smile karwana tha, toh thodi mehnat banti thi.",
+                  "Gift se zyada, uske peeche ka pyaar.",
+                ],
+              ].map(([number, title, date, text, aside]) => (
+                <article className="chapter reveal" key={number}>
+                  <span className="chapter-number">{number}</span>
+                  <div>
+                    <p className="eyebrow">{date}</p>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                    <span className="handwritten">{aside}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section className="keepsakes section reveal">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">Small things I kept</p>
+                <h2>
+                  Cheezein chhoti thi.
+                  <br />
+                  <em>Feeling nahi.</em>
+                </h2>
+              </div>
+              <p>
+                Some souvenirs don't belong in a drawer. They stay with you.
+              </p>
+            </div>
+            <div className="keepsake-layout">
+              <div className="keepsake-ticket">
+                <span>ADMIT TWO</span>
+                <strong>
+                  Our first
+                  <br />
+                  movie date
+                </strong>
+                <small>
+                  Film: questionable
+                  <br />
+                  Company: favourite
+                </small>
+                <span>KEEP THIS ONE FOREVER ♡</span>
+              </div>
+              <div className="keepsake-writing">
+                <p>
+                  Wallet mein rakhi photos. Harry Potter wala gift. Ek chhota sa
+                  teddy. Har cheez kisi moment ka shortcut hai.
+                </p>
+                <p>
+                  Aur kuch yaadein toh bina kisi souvenir ke reh gayi: baarish
+                  mein ghar aana, saath khana banana, aur ek episode ke chakkar
+                  mein subah ke paanch baj jaana.
+                </p>
+                <span className="handwritten">
+                  ordinary things. very extraordinary company.
+                </span>
+              </div>
             </div>
           </section>
           <section className="love-strip reveal">
