@@ -1,3 +1,4 @@
+import birthdayCollection from "../assets/photos/personal/birthday-collection.webp";
 import portraits from "../assets/photos/personal/portraits.webp";
 import together from "../assets/photos/personal/together.webp";
 import keepsakes from "../assets/photos/personal/keepsakes.webp";
@@ -6,6 +7,87 @@ import eyes from "../assets/photos/personal/eyes.webp";
 // View boxes frame the original collages without changing anyone's appearance.
 // Captions describe the pictures; dates and events are deliberately not guessed.
 export const memories = [
+  {
+    id: 11,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [570, 448, 480, 403],
+    date: "Birthday collection",
+    title: "That smile, always",
+    text: "Bas aise hi khush rehna, birthday girl.",
+  },
+  {
+    id: 12,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [1120, 19, 480, 403],
+    date: "Birthday collection",
+    title: "An evening glow",
+    text: "Aapki smile aur yeh shaam.",
+  },
+  {
+    id: 13,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [570, 19, 480, 403],
+    date: "Birthday collection",
+    title: "A little moment",
+    text: "Ek aur favourite photo, sirf aapki.",
+  },
+  {
+    id: 14,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [20, 448, 480, 403],
+    date: "Birthday collection",
+    title: "The candid ones",
+    text: "Poses se zyada yeh chhoti si smile.",
+  },
+  {
+    id: 15,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [1120, 448, 480, 403],
+    date: "Birthday collection",
+    title: "A view worth keeping",
+    text: "Aisi aur kitni jagah dekhni hain.",
+  },
+  {
+    id: 16,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [20, 880, 480, 403],
+    date: "Birthday collection",
+    title: "A little celebration",
+    text: "Aap ho toh photos bhi special lagti hain.",
+  },
+  {
+    id: 17,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [570, 880, 480, 403],
+    date: "Birthday collection",
+    title: "Just one more photo",
+    text: "Madam ji ka photo collection continues.",
+  },
+  {
+    id: 18,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [1120, 880, 480, 403],
+    date: "Birthday collection",
+    title: "Hearts, everywhere",
+    text: "This one belongs in a birthday keepsake.",
+  },
+  {
+    id: 19,
+    image: birthdayCollection,
+    size: [2000, 1600],
+    crop: [20, 19, 480, 403],
+    date: "Birthday collection",
+    title: "A photo from the early years",
+    text: "Ek purani photo, is naye birthday chapter mein.",
+  },
   {
     id: 1,
     image: portraits,
