@@ -70,7 +70,7 @@ const letters = [
     title: "Meri birthday girl",
     label: "Aaj, sirf aapke liye",
     stampDate: "27 / OCT",
-    text: "Meri Pyari Sukku,\n\nAapke birthday ki tayari karte waqt mere mann mein hamesha ek hi baat hoti hai: aapko special kaise feel karwaun? Pichli baar colours, pages, glue aur photos the. Is baar yeh chhoti si website hai.\n\nMain kabhi-kabhi words mein apna pyaar theek se nahi bata pata. Toh jo bol nahi paata, woh banane ki koshish karta hoon. Har chhoti cheez mein bas yahi hai: aapki smile dekhni hai.\n\nHappy birthday, meri jaan. Aapki khushiyan, aapke sapne, aur aapka woh pyaara sa bachpana hamesha aise hi rahe.",
+    text: "Meri Pyari Sukku,\n\nAapke birthday ki tayari karte waqt mere mann mein hamesha ek hi baat hoti hai: aapko special kaise feel karwaun? Pichli baar colours, pages, glue aur photos the. Is baar yeh chhoti si website hai.\n\nMain kabhi-kabhi words mein apna pyaar theek se nahi bata pata. Har chhoti cheez mein bas yahi hai: aapki smile dekhni hai.\n\nHappy birthday, meri jaan. Aapki khushiyan, aapke sapne, aur aapka woh pyaara sa bachpana hamesha aise hi rahe.",
   },
   {
     title: "Woh sab jo yaad reh gaya",
@@ -266,23 +266,21 @@ export default function App() {
     setSurpriseStep((step) => Math.max(step, 1));
     const surprises = [
       [
-        "Sukku, aapke naam ek secret…",
-        "Iss page mein teen chhoti surprises chhupayi hain. Pehla clue: kuch photos ke peeche bhi baatein hoti hain. Agle section mein photo ke paas ek laal tab dhoondho.",
+        "Aaj ke birthday rules",
+        "Rule number one: cake ka sabse bada piece aapka. Rule number two: aaj ke saare nakhre accepted. Rule number three: “bas ek photo aur” bolne par koi mana nahi karega. Madam ji, aaj poori birthday VIP treatment milegi.",
       ],
       [
-        "Madam ji, no peeking!",
-        "Aapne secret trail dhoondh li. Ab seedha neeche mat bhaagna… pehle photo ke peeche wala laal tab kholna. Wahan kuch aapka wait kar raha hai.",
+        "Ek hug pending hai",
+        "Screen ke iss taraf se ek bahut tight wala hug bheja hai. Aankhein band karke do second imagine kar lo ki main paas hoon. Milne par asli wala bhi milega — aur uss waqt jaldi chhodne ko mat bolna.",
       ],
       [
-        "Ek balloon, pehla clue",
-        "Aapka birthday mission shuru. Ek photo hai, uske paas ek chhota laal tab hai. Usko kheenchne se pehla secret khulega. Ready?",
+        "Aapke naye saal ke naam ♡",
+        "Sukku, agle birthday tak aapke paas kitni nayi baatein hongi na — kuch aise din jinhe aap baar-baar yaad karogi, koi kaam jise karke khud par proud feel hoga, aur kuch achanak mile hue happy moments. Main aapki woh excited awaaz sunna chahta hoon: “Pata hai, aaj kya hua!”",
       ],
     ];
     setNote({
       title: surprises[index][0],
       text: surprises[index][1],
-      nextTarget: "photo-surprise",
-      nextLabel: "Pehla clue dhoondhein →",
     });
     celebrate();
   }
@@ -472,7 +470,7 @@ export default function App() {
                 {
                   [
                     "Teen secrets chhupe hain. Ek balloon se shuru karo.",
-                    "Pehla clue mil gaya. Ab photo ke paas dekho.",
+                    "Balloon khul gaya! Photo ke paas bhi kuch rakha hai.",
                     "Ab ek khaas seal aapka wait kar rahi hai.",
                     "Secrets mil gaye. Ab apni wish maango.",
                     "All secrets found. Lekin ek last baat…",
@@ -545,9 +543,7 @@ export default function App() {
                     setSurpriseStep((step) => Math.max(step, 2));
                     setNote({
                       title: "Birthday rule no. 1",
-                      text: "Aaj ke din apne aap ko thoda extra pyaar dena. Apni favourite photo lena, apne nakhre poore karna, aur bina kisi reason ke bhi smile karna.\n\nAur haan… abhi ek sealed surprise baaki hai. Letters ke neeche ek golden seal dhoondho. Us par sirf aapka naam hai.",
-                      nextTarget: "secret-seal",
-                      nextLabel: "Agla secret dhoondho →",
+                      text: "Aaj ke din apne aap ko thoda extra pyaar dena. Apni favourite photo lena, apne nakhre poore karna, aur bina kisi reason ke bhi smile karna.",
                     });
                     celebrate();
                   }}
