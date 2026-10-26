@@ -1,92 +1,253 @@
-import memory01 from "../assets/photos/memory-01.jpg";
-import memory02 from "../assets/photos/memory-02.jpg";
-import memory03 from "../assets/photos/memory-03.jpg";
-import memory04 from "../assets/photos/memory-04.jpg";
-import memory05 from "../assets/photos/memory-05.jpg";
-import memory06 from "../assets/photos/memory-06.jpg";
-import memory07 from "../assets/photos/memory-07.jpg";
-import memory08 from "../assets/photos/memory-08.jpg";
-import memory09 from "../assets/photos/memory-09.jpg";
-import memory10 from "../assets/photos/memory-10.jpg";
+import photo1 from "../assets/photos/personal/photo-01.webp";
+import photo2 from "../assets/photos/personal/photo-02.webp";
+import photo3 from "../assets/photos/personal/photo-03.webp";
+import photo4 from "../assets/photos/personal/photo-04.webp";
+import photo5 from "../assets/photos/personal/photo-05.webp";
+import photo6 from "../assets/photos/personal/photo-06.webp";
+import photo7 from "../assets/photos/personal/photo-07.webp";
+import photo8 from "../assets/photos/personal/photo-08.webp";
+import photo9 from "../assets/photos/personal/photo-09.webp";
+import photo10 from "../assets/photos/personal/photo-10.webp";
+import photo11 from "../assets/photos/personal/photo-11.webp";
+import photo12 from "../assets/photos/personal/photo-12.webp";
+import photo13 from "../assets/photos/personal/photo-13.webp";
+import photo14 from "../assets/photos/personal/photo-14.webp";
+import photo15 from "../assets/photos/personal/photo-15.webp";
+import photo16 from "../assets/photos/personal/photo-16.webp";
+import photo17 from "../assets/photos/personal/photo-17.webp";
+import photo18 from "../assets/photos/personal/photo-18.webp";
+import photo19 from "../assets/photos/personal/photo-19.webp";
+import photo20 from "../assets/photos/personal/photo-20.webp";
+import photo21 from "../assets/photos/personal/photo-21.webp";
+import photo22 from "../assets/photos/personal/photo-22.webp";
+import photo23 from "../assets/photos/personal/photo-23.webp";
+import photo24 from "../assets/photos/personal/photo-24.webp";
+import photo25 from "../assets/photos/personal/photo-25.webp";
 
 export const memories = [
   {
     id: 1,
-    date: "01 January 2025",
-    title: "A New Beginning",
-    image: memory01,
-    text: "Some beautiful moments are worth remembering forever.",
+    image: photo1,
+    size: [900, 635],
+    crop: [0, 0, 900, 635],
+    date: "Little pieces of us",
+    title: "My favourite company",
+    text: "Aap aur main. Iss frame mein meri favourite company hai.",
   },
-
   {
     id: 2,
-    date: "14 February 2025",
-    title: "A Little Love Story",
-    image: memory02,
-    text: "A simple day, a beautiful memory, and a lot of smiles.",
+    image: photo2,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "Phoolon wali smile",
+    text: "Phool hawa mein, aur aapke chehre par woh khushi.",
   },
-
   {
     id: 3,
-    date: "20 March 2025",
-    title: "Just Us",
-    image: memory03,
-    text: "Sometimes the simplest moments become our favourite ones.",
+    image: photo3,
+    size: [675, 1200],
+    crop: [0, 0, 675, 1200],
+    date: "Little pieces of us",
+    title: "The pink dupatta",
+    text: "Pink dupatte mein ek pal, jo photo mein ruk gaya.",
   },
-
   {
     id: 4,
-    date: "05 April 2025",
-    title: "That Happy Day",
-    image: memory04,
-    text: "One of those days that you wish could last a little longer.",
+    image: photo4,
+    size: [900, 675],
+    crop: [0, 0, 900, 675],
+    date: "Little pieces of us",
+    title: "Bench par ek candid",
+    text: "Green bench wala yeh candid sambhal ke rakhna tha.",
   },
-
   {
     id: 5,
-    date: "16 June 2025",
-    title: "A Special Chapter",
-    image: memory05,
-    text: "A new chapter started, filled with little adventures and memories.",
+    image: photo5,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "A quiet little portrait",
+    text: "Ek seedhi si nazar, bina kisi bade pose ke.",
   },
-
   {
     id: 6,
-    date: "28 June 2025",
-    title: "Little Adventures",
-    image: memory06,
-    text: "Exploring places together and collecting moments along the way.",
+    image: photo6,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "An evening in brown",
+    text: "Shaam ke lights mein aapka apna sa andaaz.",
   },
-
   {
     id: 7,
-    date: "10 July 2025",
-    title: "A Day To Remember",
-    image: memory07,
-    text: "A beautiful day made special simply because we were together.",
+    image: photo7,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "Between the red steps",
+    text: "Seedhiyon par baithi madam ji. Bas ek aur photo.",
   },
-
   {
     id: 8,
-    date: "23 October 2025",
-    title: "Birthday Week",
-    image: memory08,
-    text: "A week full of smiles, surprises, laughter and unforgettable moments.",
+    image: photo8,
+    size: [900, 675],
+    crop: [0, 0, 900, 675],
+    date: "Little pieces of us",
+    title: "A childhood keepsake",
+    text: "Bachpan ki photo bhi iss birthday album ka hissa hai.",
   },
-
   {
     id: 9,
-    date: "27 October 2025",
-    title: "The Birthday Girl",
-    image: memory09,
-    text: "A special birthday for a very special person.",
+    image: photo9,
+    size: [800, 1200],
+    crop: [0, 0, 800, 1200],
+    date: "Little pieces of us",
+    title: "A smile by the water",
+    text: "Camera ke saamne aane se pehle wali chhoti si hansi.",
   },
-
   {
     id: 10,
-    date: "29 October 2025",
-    title: "Until The Next Memory",
-    image: memory10,
-    text: "Some goodbyes are not endings. They are simply a pause before the next beautiful memory.",
+    image: photo10,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "When the sun went down",
+    text: "Suraj dhal raha tha; yeh frame reh gaya.",
+  },
+  {
+    id: 11,
+    image: photo11,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "Lights on the water",
+    text: "Paani mein lights, aur aap saamne.",
+  },
+  {
+    id: 12,
+    image: photo12,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "The night portrait",
+    text: "Raat ki hawa mein kheechi ek alag si tasveer.",
+  },
+  {
+    id: 13,
+    image: photo13,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "Under the white arches",
+    text: "Safed pillars ke beech black outfit ka yeh frame.",
+  },
+  {
+    id: 14,
+    image: photo14,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "Hills in the background",
+    text: "Pahaadon aur paani ke saath ek tasveer.",
+  },
+  {
+    id: 15,
+    image: photo15,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "A festive little frame",
+    text: "Birthday collection mein party wali photo bhi zaroori thi.",
+  },
+  {
+    id: 16,
+    image: photo16,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "The heart sweater",
+    text: "Heart sweater ki ek pyaari si portrait.",
+  },
+  {
+    id: 17,
+    image: photo17,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "One more angle",
+    text: "Isi outfit ka ek aur angle, ek alag expression.",
+  },
+  {
+    id: 18,
+    image: photo18,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "Yellow threads, green trees",
+    text: "Yellow embroidery aur pedon wali background.",
+  },
+  {
+    id: 19,
+    image: photo19,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "Under the chandeliers",
+    text: "Chandeliers ke neeche waali yeh photo.",
+  },
+  {
+    id: 20,
+    image: photo20,
+    size: [554, 1200],
+    crop: [0, 0, 554, 1200],
+    date: "Little pieces of us",
+    title: "A candid from the gallery",
+    text: "Phone ki gallery se hamari ek candid jhalak.",
+  },
+  {
+    id: 21,
+    image: photo21,
+    size: [900, 1200],
+    crop: [0, 0, 900, 1200],
+    date: "Little pieces of us",
+    title: "A bridge and a blue sky",
+    text: "Blue sky aur bridge ki lines ke beech aap.",
+  },
+  {
+    id: 22,
+    image: photo22,
+    size: [675, 1200],
+    crop: [0, 0, 675, 1200],
+    date: "Little pieces of us",
+    title: "The black-and-white sweater",
+    text: "Black-white sweater mein ek purani favourite.",
+  },
+  {
+    id: 23,
+    image: photo23,
+    size: [675, 1200],
+    crop: [40, 210, 506, 780],
+    date: "Little pieces of us",
+    title: "Aankhon wali baat",
+    text: "Do aankhon ki tasveerein, ek hi frame mein.",
+  },
+  {
+    id: 24,
+    image: photo24,
+    size: [675, 1200],
+    crop: [0, 0, 675, 1200],
+    date: "Little pieces of us",
+    title: "Haath mein haath",
+    text: "Haathon ki iss photo ko caption ki zaroorat bhi hai?",
+  },
+  {
+    id: 25,
+    image: photo25,
+    size: [675, 1200],
+    crop: [0, 0, 675, 1200],
+    date: "Little pieces of us",
+    title: "A little side profile",
+    text: "Profile wali photo: kuch kehne se pehle ka ek pal.",
   },
 ];
