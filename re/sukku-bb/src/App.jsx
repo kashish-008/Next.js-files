@@ -274,8 +274,8 @@ export default function App() {
         "Screen ke iss taraf se ek bahut tight wala hug bheja hai. Aankhein band karke do second imagine kar lo ki main paas hoon. Milne par asli wala bhi milega — aur uss waqt jaldi chhodne ko mat bolna.",
       ],
       [
-        "Abhi ki complaint box",
-        "Complaint: aapki ek smile dekh kar main jo bolne aata hoon, bhool jaata hoon. Upar se aapko pata bhi hai aur phir bhi aise hi dekhti ho. Birthday hai isliye aaj maaf kiya. Kal se phir complaint karunga.",
+        "Aapke naye saal ke naam ♡",
+        "Sukku, agle birthday tak aapke paas kitni nayi baatein hongi na — kuch aise din jinhe aap baar-baar yaad karogi, koi kaam jise karke khud par proud feel hoga, aur kuch achanak mile hue happy moments. Main aapki woh excited awaaz sunna chahta hoon: “Pata hai, aaj kya hua!”",
       ],
     ];
     setNote({
@@ -543,9 +543,7 @@ export default function App() {
                     setSurpriseStep((step) => Math.max(step, 2));
                     setNote({
                       title: "Birthday rule no. 1",
-                      text: "Aaj ke din apne aap ko thoda extra pyaar dena. Apni favourite photo lena, apne nakhre poore karna, aur bina kisi reason ke bhi smile karna.\n\nAur haan… abhi ek sealed surprise baaki hai. Letters ke neeche ek golden seal dhoondho. Us par sirf aapka naam hai.",
-                      nextTarget: "secret-seal",
-                      nextLabel: "Agla secret dhoondho →",
+                      text: "Aaj ke din apne aap ko thoda extra pyaar dena. Apni favourite photo lena, apne nakhre poore karna, aur bina kisi reason ke bhi smile karna.",
                     });
                     celebrate();
                   }}
