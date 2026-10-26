@@ -266,23 +266,21 @@ export default function App() {
     setSurpriseStep((step) => Math.max(step, 1));
     const surprises = [
       [
-        "Sukku, aapke naam ek secret…",
-        "Iss page mein teen chhoti surprises chhupayi hain. Pehla clue: kuch photos ke peeche bhi baatein hoti hain. Agle section mein photo ke paas ek laal tab dhoondho.",
+        "Aaj ke birthday rules",
+        "Rule number one: cake ka sabse bada piece aapka. Rule number two: aaj ke saare nakhre accepted. Rule number three: “bas ek photo aur” bolne par koi mana nahi karega. Madam ji, aaj poori birthday VIP treatment milegi.",
       ],
       [
-        "Madam ji, no peeking!",
-        "Aapne secret trail dhoondh li. Ab seedha neeche mat bhaagna… pehle photo ke peeche wala laal tab kholna. Wahan kuch aapka wait kar raha hai.",
+        "Ek hug pending hai",
+        "Screen ke iss taraf se ek bahut tight wala hug bheja hai. Aankhein band karke do second imagine kar lo ki main paas hoon. Milne par asli wala bhi milega — aur uss waqt jaldi chhodne ko mat bolna.",
       ],
       [
-        "Ek balloon, pehla clue",
-        "Aapka birthday mission shuru. Ek photo hai, uske paas ek chhota laal tab hai. Usko kheenchne se pehla secret khulega. Ready?",
+        "Abhi ki complaint box",
+        "Complaint: aapki ek smile dekh kar main jo bolne aata hoon, bhool jaata hoon. Upar se aapko pata bhi hai aur phir bhi aise hi dekhti ho. Birthday hai isliye aaj maaf kiya. Kal se phir complaint karunga.",
       ],
     ];
     setNote({
       title: surprises[index][0],
       text: surprises[index][1],
-      nextTarget: "photo-surprise",
-      nextLabel: "Pehla clue dhoondhein →",
     });
     celebrate();
   }
@@ -472,7 +470,7 @@ export default function App() {
                 {
                   [
                     "Teen secrets chhupe hain. Ek balloon se shuru karo.",
-                    "Pehla clue mil gaya. Ab photo ke paas dekho.",
+                    "Balloon khul gaya! Photo ke paas bhi kuch rakha hai.",
                     "Ab ek khaas seal aapka wait kar rahi hai.",
                     "Secrets mil gaye. Ab apni wish maango.",
                     "All secrets found. Lekin ek last baat…",
